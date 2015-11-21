@@ -1,0 +1,15 @@
+"3.9
+
+map J gt
+map K gT
+map <C-S-j> :tabmove +1<CR>
+map <C-S-k> :tabmove -1<CR>
+map ZZ ZQ
+map d :quit<CR>
+map D :winclose<CR>
+
+set toolbars=none
+
+source! .vimperatorrc.local
+
+" vim: set ft=vimperator:
