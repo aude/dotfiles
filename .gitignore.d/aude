@@ -1,0 +1,15 @@
+*
+!.gitignore.d
+!.gitignore.d/aude
+!.vim
+!.vim/backup
+!.vim/backup/.keepdir
+!.vim/bundle
+!.vim/bundle/.keepdir
+!.vim/swap
+!.vim/swap/.keepdir
+!.vim/undo
+!.vim/undo/.keepdir
+!.vim/view
+!.vim/view/.keepdir
+!.vim/vimrc
