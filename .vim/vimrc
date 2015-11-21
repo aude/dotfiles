@@ -1,0 +1,97 @@
+" -------- Vundle --------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+"~ " plugin on GitHub repo
+"~ Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'StanAngeloff/php.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'dsawardekar/wordpress.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'bronson/vim-trailing-whitespace'
+"~ Plugin 'scrooloose/syntastic'
+"~ " plugin from http://vim-scripts.org/vim/scripts.html
+"~ Plugin 'L9'
+"~ " Git plugin not hosted on GitHub
+"~ Plugin 'git://git.wincent.com/command-t.git'
+"~ " git repos on your local machine (i.e. when working on your own plugin)
+"~ Plugin 'file:///home/gmarik/path/to/plugin'
+"~ " The sparkup vim script is in a subdirectory of this repo called vim.
+"~ " Pass the path to set the runtimepath properly.
+"~ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"~ " Avoid a name conflict with L9
+"~ Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append  to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append  to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append  to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" -------- Vundle --------
+
+set clipboard=unnamedplus
+"set number
+"set relativenumber
+set undofile
+
+let mapleader=","
+
+"~ let g:solarized_termcolors=256
+syntax enable
+set background=light
+"~ if has('gui_running')
+"~ 		set background=light
+"~ 	else
+"~ 		set background=dark
+"~ endif
+colorscheme solarized
+
+" force markdown ~https://github.com/tpope/vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" set better cache dirs
+set directory=~/.vim/swap
+set backupdir=~/.vim/backup
+set viewdir=~/.vim/view
+set undodir=~/.vim/undo
+set viminfo+=n~/.vim/viminfo
+
+" ~http://vim.wikia.com/wiki/Search_for_visually_selected_text
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
