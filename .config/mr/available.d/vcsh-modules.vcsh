@@ -1,0 +1,2 @@
+[${XDG_CONFIG_HOME:-$HOME/.config}/vcsh/repo.d/vcsh-modules.git]
+checkout = vcsh clone https://github.com/lierdakil/vcsh-modules vcsh-modules
