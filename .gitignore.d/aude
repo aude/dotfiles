@@ -7,17 +7,14 @@
 !.config/mr
 !.config/mr/available.d
 !.config/mr/available.d/aude.vcsh
-!.config/mr/available.d/vcsh-modules.vcsh
 !.config/mr/config.d
 !.config/mr/config.d/aude.vcsh
-!.config/mr/config.d/vcsh-modules.vcsh
 !.mrconfig
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
 !.vim/bundle
 !.vim/bundle/.keepdir
-!.vim/bundle/Vundle.vim
 !.vim/swap
 !.vim/swap/.keepdir
 !.vim/undo

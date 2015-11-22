@@ -1,2 +1,6 @@
 [${XDG_CONFIG_HOME:-$HOME/.config}/vcsh/repo.d/aude.git]
-checkout = vcsh clone git@github.com:aude/dotfiles.git aude
+checkout = vcsh clone 'git@github.com:aude/dotfiles.git' 'aude'
+
+[.vim/bundle/Vundle.vim]
+checkout = git clone 'https://github.com/VundleVim/Vundle.vim' 'Vundle.vim'
+
