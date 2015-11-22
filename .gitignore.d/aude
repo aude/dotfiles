@@ -1,12 +1,15 @@
 *
 !.gitignore.d
 !.gitignore.d/aude
+!.config
+!.config/mr
+!.config/mr/**
+!.mrconfig
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
 !.vim/bundle
 !.vim/bundle/.keepdir
-!.vim/bundle/Vundle.vim
 !.vim/swap
 !.vim/swap/.keepdir
 !.vim/undo
