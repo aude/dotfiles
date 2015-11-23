@@ -6,7 +6,7 @@
 <SearchForm>https://en.wikipedia.org/wiki/</SearchForm>
 <os:Url type="text/html" method="GET" template="https://en.wikipedia.org/wiki/Special:Search?go=Go&amp;search={searchTerms}">
 </os:Url><os:Url type="application/x-suggestions+json" method="GET" template="https://en.wikipedia.org/w/api.php?action=opensearch&amp;search={searchTerms}">
-</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/wikipedia_en_ssl.xml" rel="self">
+<!--</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/wikipedia_en_ssl.xml" rel="self">-->
 </os:Url>
-<os:Alias>w</os:Alias>
+<Alias>w</Alias>
 </SearchPlugin>

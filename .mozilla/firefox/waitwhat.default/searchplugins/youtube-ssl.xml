@@ -6,7 +6,7 @@
 <SearchForm>https://www.youtube.com/</SearchForm>
 <os:Url type="text/html" method="GET" template="https://www.youtube.com/results?search_query={searchTerms}">
 </os:Url><os:Url type="application/x-suggestions+json" method="GET" template="https://clients1.google.com/complete/search?json&amp;ds=yt&amp;q={searchTerms}">
-</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/youtube_ssl.xml" rel="self">
+<!--</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/youtube_ssl.xml" rel="self">-->
 </os:Url>
-<os:Alias>yt</os:Alias>
+<Alias>yt</Alias>
 </SearchPlugin>

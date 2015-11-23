@@ -6,7 +6,7 @@
 <SearchForm>http://www.amazon.co.uk/</SearchForm>
 <os:Url type="text/html" method="GET" template="http://www.amazon.co.uk/gp/search?ie=UTF8&amp;keywords={searchTerms}&amp;tag=mycroft16-21&amp;index=blended&amp;linkCode=ur2&amp;camp=1634&amp;creative=6738" resultDomain="amazon.co.uk">
 </os:Url><os:Url type="application/x-suggestions+json" method="GET" template="http://completion.amazon.com/search/complete?method=completion&amp;q={searchTerms}&amp;search-alias=aps&amp;client=amazon-search-ui&amp;mkt=1" resultDomain="completion.amazon.com">
-</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/amazoncouk-mc.xml" rel="self" resultDomain="mycroftproject.com">
+<!--</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/amazoncouk-mc.xml" rel="self" resultDomain="mycroftproject.com">-->
 </os:Url>
-<os:Alias>auk</os:Alias>
+<Alias>auk</Alias>
 </SearchPlugin>
