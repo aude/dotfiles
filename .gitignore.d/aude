@@ -10,6 +10,13 @@
 !.config/mr/config.d
 !.config/mr/config.d/aude.vcsh
 !.mrconfig
+!.mozilla
+!.mozilla/firefox
+!.mozilla/firefox/profiles.ini
+!.mozilla/firefox/waitwhat.default
+!.mozilla/firefox/waitwhat.default/user.js
+!.mozilla/firefox/waitwhat.default/searchplugins
+!.mozilla/firefox/waitwhat.default/searchplugins/*
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
