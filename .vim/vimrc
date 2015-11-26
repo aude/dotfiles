@@ -85,7 +85,8 @@ let mapleader=","
 map j gj
 map k gk
 
-if has('gui_running') || v:progname ==# "vimx" || v:progname ==# "vim.gtk"
+"if has('gui_running')
+if $DISPLAY != ""
 	set background=light
 else
 	set background=dark
