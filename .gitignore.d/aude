@@ -10,6 +10,12 @@
 !.config/mr/config.d
 !.config/mr/config.d/aude.vcsh
 !.mrconfig
+!.inputrc
+!.shrc
+!.shrc.d
+!.shrc.d/80aude.sh
+!src
+!src/.keepdir
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
