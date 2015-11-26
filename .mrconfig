@@ -2,3 +2,5 @@
 jobs = 5
 
 include = cat ~/.config/mr/config.d/*
+# update Vundle repos. expect all "Plugin" directives to be pointing to GitHub repos
+include = test -f .vim/vimrc && cat .vim/vimrc | grep "^Plugin '" | sed -r "s|^Plugin '([^/]+/([^']+))'.*|[.vim/bundle/\2]\ncheckout = git clone 'https://github.com/\1' '\2'|"

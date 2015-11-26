@@ -1,9 +1,11 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+" vars
 let g:NERDCustomDelimiters = {
     \ 'phtml': { 'left': '<?php /*', 'right': '*/ ?>' }
 \ }
+
+" -- Vundle --
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -18,27 +20,35 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'docunext/closetag.vim'
-Plugin 'sukima/xmledit'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-Plugin 'bae22/prefixer'
-" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'sukima/xmledit'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'pangloss/vim-javascript'
+"Plugin 'StanAngeloff/php.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'dsawardekar/wordpress.vim'
+Plugin 'editorconfig/editorconfig-vim'
+"Plugin 'scrooloose/syntastic'
+"" plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
-" Git plugin not hosted on GitHub
+"" Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
+"" git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
+"" The sparkup vim script is in a subdirectory of this repo called vim.
+"" Pass the path to set the runtimepath properly.
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'vimperator/vimperator-labs', {'rtp': 'vimperator/contrib/vim/'}
+"~ " Avoid a name conflict with L9
+"~ Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,6 +64,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" -- Vundle --
+
+syntax enable
 
 set clipboard=unnamedplus
 "set number
@@ -63,7 +76,23 @@ set hlsearch
 set incsearch
 set smartcase
 
+set showcmd
+set wildmenu
+set ruler
+
+" map
 let mapleader=","
+map j gj
+map k gk
+
+if has('gui_running') || v:progname ==# "vimx" || v:progname ==# "vim.gtk"
+	set background=light
+else
+	set background=dark
+endif
+
+"let g:solarized_termcolors=256 " use if not using Solarized in terminal emulator
+colorscheme solarized
 
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -85,7 +114,8 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 
 " matchit.vim
-source /usr/share/vim/vim74/macros/matchit.vim
+source $VIMRUNTIME/macros/matchit.vim
 
 " easytags.vim
-:let g:easytags_file = '~/.vim/tags'
+let g:easytags_file = '~/.vim/tags'
+
