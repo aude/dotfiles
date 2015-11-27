@@ -1,9 +1,13 @@
 "3.9
 
-map J gt
 map K gT
-map <C-S-j> :tabmove +1<CR>
+map J gt
+map <F3> gT
+map <F4> gt
 map <C-S-k> :tabmove -1<CR>
+map <C-S-j> :tabmove +1<CR>
+map <C-S-F3> :tabmove -1<CR>
+map <C-S-F4> :tabmove +1<CR>
 map ZZ ZQ
 map d :quit<CR>
 map D :winclose<CR>
