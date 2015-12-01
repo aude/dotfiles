@@ -12,7 +12,7 @@ map ZZ ZQ
 map d :quit<CR>
 map D :winclose<CR>
 
-set toolbars=none
+set toolbars=none,tabs
 
 source! .vimperatorrc.local
 
