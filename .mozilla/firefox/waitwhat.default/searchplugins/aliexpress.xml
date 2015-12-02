@@ -1,11 +1,10 @@
 <SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
-<os:ShortName>AliExpress.com</os:ShortName>
-<os:Description>basic search on AliExpress.com</os:Description>
+<os:ShortName>ax</os:ShortName>
+<os:Description>AliExpress.com</os:Description>
 <os:InputEncoding>UTF-8</os:InputEncoding>
 <os:Image width="16" height="16">data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAACOyfv/IBi8/yAYvP8gGLv/IBi7/yAYu/8hGLz/IRi8/yAYvP8hGLz/IBi7/yAYvP8gGLz/IRi8/yEYvP+Oyfv/IRi9/yMZwv8iGcL/IxrC/yMawv8iGcH/IhnC/yMZwv8iGcH/IhrC/yIZwv8iGsL/IhnC/yIZwv8iGsL/IBi+/yEYwP8iGsT/IhrE/yIZxf8iGsX/IhrF/yIaxf8jGsT/IhnE/yMZxf8iGsX/IxnE/yIZxf8jGcT/IhnF/yAYwP8hGML/IxrH/yMax/8mHsn/paLo/56a5/8lHcj/IhrI/yIax/8jG8f/IxrH/56a5v+loun/Jh7I/yIax/8gGML/IRjF/yMbyv8iGsr/MSjO//Hx/P/o5/n/IxrL/yIay/8jGsv/IxrK/yIay//o5/n/8fH8/zEozf8iGsr/IRnF/yEZyP8jG87/IxvO/yMbzv+Ylej/qqbs/yMazf8kG87/IxvO/yMbzv8jG87/qqbs/z841P8jG87/IxvO/yEZyP8hGcr/IxvR/yMb0f8kG9L/5+b6/+/v/P/a2ff/2Nf3/9jX9//Y1/f/1dP2/8rJ9P9pY+D/IxvR/yMb0v8hGsr/IhnO/yQb1f8kG9X/IxzV//////+Xk+v/MirY/zoy2f86Mtn/OTLZ/zkz2f84MNn/KiLW/yMc1f8kHNX/IRrO/yIZ0f8jHNj/JBzZ/6uo8P//////UEng/6Ge7//r6/z/6+v8/+vr+//r6/v/8O/8/7m38/8kHNj/JBzZ/yIa0f8iGtP/JBzc/yQc3P/n5vv/4eD6/ycf3P8kHNz/Ukvk/1JL4/9SS+P/Ukzj/8jG9v//////Tkjj/yQd3P8iGtP/IxrX/yQd3/8kHd///////yQd4P8kHOD/Lifh/ywl4f8sJOD/LSTh/ywl4f+Sje///////3dy6/8kHOD/IhrX/yMb2f8lHeP/JB3i///////19P7/7+79/+/u/f/v7v3/7+79/+/u/f/v7v3/8/P9//z8//+xrvX/JB3i/yIb2f8iG9z/JB7l/83M+f/d3Pv/JB7l/yQd5f8lHeb/JB3m/yUd5v8lHeX/JB3m/yUe5v8lHuX/JB3l/yQd5f8jG9z/Ixzd/yUe6f8lHuj/JB3o/yQe6P8lHen/JB3o/yUe6P8lHuj/JR7o/yQe6P8kHej/JR3o/yUe6P8kHuj/Ixzd/yMc3/8rMvH/KzTx/ys08v8rNPH/KjTy/ysy8v8rNPH/KzLx/ys08v8rNPL/KzTx/ys08f8rNPH/KzTx/yMc3/+Oyfv/Ixzh/yMc4f8jHOH/Ixzh/yMc4f8jHOH/Ixzh/yMc4f8jHOH/Ixzh/yMc4f8jHOH/Ixzh/yMc4f+Oyfv/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</os:Image>
 <SearchForm>http://www.aliexpress.com/</SearchForm>
 <os:Url type="text/html" method="GET" template="http://www.aliexpress.com/wholesale?SearchText={searchTerms}" resultDomain="aliexpress.com">
 <!--</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/aliexpress-defaults.xml" rel="self" resultDomain="mycroftproject.com">-->
 </os:Url>
-<Alias>ax</Alias>
 </SearchPlugin>
