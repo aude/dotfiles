@@ -4,5 +4,5 @@ set completion-map-case on
 set expand-tilde off
 set match-hidden-files on
 set page-completions off
-set show-all-if-ambiguous on
+#set show-all-if-ambiguous on
 set show-all-if-unmodified on

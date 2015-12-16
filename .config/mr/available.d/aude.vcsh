@@ -3,3 +3,6 @@ checkout = vcsh clone 'git@github.com:aude/dotfiles.git' 'aude'
 
 [src/z]
 checkout = git clone 'https://github.com/rupa/z' 'z'
+
+[src/tomb]
+checkout = git clone 'https://github.com/dyne/Tomb' 'tomb'
