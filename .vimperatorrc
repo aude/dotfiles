@@ -2,6 +2,7 @@
 
 map K gT
 map J gt
+map <F2> t
 map <F3> gT
 map <F4> gt
 map <C-S-k> :tabmove -1<CR>
