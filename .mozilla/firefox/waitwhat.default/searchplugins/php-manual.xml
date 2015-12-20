@@ -1,10 +1,11 @@
-<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
-<os:ShortName>php</os:ShortName>
-<os:Description>PHP Manual</os:Description>
-<os:InputEncoding>UTF-8</os:InputEncoding>
-<os:Image width="16" height="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABzSURBVHjaYmxoOMBACmBiIBGQrIEFjR8eLg5hrFz5klgbNDU1CdiA1VSgIISLLnv9+nW4outggJ/LhMyBOwYPl27BCrEO2cWY4QaRZYG7Eh4OQDacgSmLcBI8TDEZyGwmPC5BNh7hB1xJAFcCITmUAAIMADWDWcYnrCpGAAAAAElFTkSuQmCC</os:Image>
-<SearchForm>http://www.php.net/</SearchForm>
-<os:Url type="text/html" method="GET" template="https://secure.php.net/manual-lookup.php?pattern={searchTerms}" resultDomain="php.net">
-<!--</os:Url><os:Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/php_icon.xml" rel="self" resultDomain="mycroftproject.com">-->
-</os:Url>
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>php</ShortName>
+    <Description>PHP Manual</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABzSURBVHjaYmxoOMBACmBiIBGQrIEFjR8eLg5hrFz5klgbNDU1CdiA1VSgIISLLnv9+nW4outggJ/LhMyBOwYPl27BCrEO2cWY4QaRZYG7Eh4OQDacgSmLcBI8TDEZyGwmPC5BNh7hB1xJAFcCITmUAAIMADWDWcYnrCpGAAAAAElFTkSuQmCC</Image>
+    <SearchForm>https://secure.php.net/</SearchForm>
+    <Url type="text/html" method="GET" template="https://secure.php.net/manual-lookup.php" resultDomain="php.net">
+        <Param name="pattern" value="{searchTerms}"/>
+    </Url>
+    <!--<Url type="application/opensearchdescription+xml" method="GET" template="http://mycroftproject.com/updateos.php/id0/php_icon.xml" rel="self" resultDomain="mycroftproject.com"/>-->
 </SearchPlugin>
