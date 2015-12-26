@@ -1,0 +1,9 @@
+[user]
+	name = Asbjørn Apeland
+	email = aude@users.noreply.github.com
+	signingKey = 7C718B3C995CB28D
+[push]
+	default = simple
+[alias]
+	#subdir-pages-push = subtree push --prefix $1 origin gh-pages
+	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
