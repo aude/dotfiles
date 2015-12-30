@@ -40,3 +40,5 @@
 !.vimperator
 !.vimperatorrc
 !.gitconfig
+!.zshrc
+!.bashrc
