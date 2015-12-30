@@ -94,7 +94,7 @@ else
 endif
 
 "let g:solarized_termcolors=256 " use if not using Solarized in terminal emulator
-colorscheme solarized
+"colorscheme solarized
 
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown

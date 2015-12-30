@@ -18,6 +18,7 @@
 !src/.keepdir
 !bin
 !bin/.keepdir
+!bin/*
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini

@@ -2,7 +2,10 @@
 checkout = vcsh clone 'https://github.com/aude/dotfiles.git' 'aude'
 
 [src/system-conf]
-checkout = git clone --recursive 'https://github.com/aude/system-conf.git' 'system-conf'
+checkout = git clone 'https://github.com/aude/system-conf.git' 'system-conf'
 
 [src/z]
-checkout = git clone --recursive 'https://github.com/rupa/z.git' 'z'
+checkout = git clone 'https://github.com/rupa/z.git' 'z'
+[src/selecta]
+checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
+
