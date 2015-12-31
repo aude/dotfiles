@@ -54,7 +54,7 @@ fi
 #grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
 grml_theme_add_token spath '%c ' '%B' '%b'
 #zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
-zstyle ':prompt:grml:left:setup' items rc virtual-env change-root spath vcs percent
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root spath vcs
 zstyle ':prompt:grml:right:setup' items
 
 ## ZLE tweaks ##
