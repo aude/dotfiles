@@ -6,6 +6,6 @@
     <SearchForm>https://wiki.archlinux.org</SearchForm>
     <Url type="text/html" method="GET" template="https://wiki.archlinux.org/index.php/Special:Search">
         <Param name="search" value="{searchTerms}"/>
-        <Param name="fulltext" value="Search"/>
+	<Param name="go" value="Go"/>
     </Url>
 </SearchPlugin>
