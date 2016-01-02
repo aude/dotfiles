@@ -19,13 +19,16 @@
 !bin
 !bin/.keepdir
 !bin/selecta
+!bin/i3-launch
+!bin/lib
+!bin/lib/i3.py
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
 !.mozilla/firefox/waitwhat.default
 !.mozilla/firefox/waitwhat.default/user.js
 !.mozilla/firefox/waitwhat.default/searchplugins
-!.mozilla/firefox/waitwhat.default/searchplugins/*
+!.mozilla/firefox/waitwhat.default/searchplugins/**
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
@@ -44,7 +47,7 @@
 !.zshrc
 !.bashrc
 !.config/i3
-!.config/i3/config
+!.config/i3/**
 !.config/i3status
-!.config/i3status/config
+!.config/i3status/**
 !.Xresources

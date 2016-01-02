@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+
+from lib.i3 import i3
+from sys import argv
+from os.path import expanduser,expandvars,isfile
+from os import environ,execv
+import os
+from json import load
+
+'''
+launch different programs per workspace
+
+specify the default program as the first argument,
+and configure the exceptions in launch.json
+
+example launch.json:
+
+	{
+		"4": "firefox",
+		"7": "nautilus"
+	}
+
+'''
+
+if len(argv) != 2:
+	# execv i3-nagbar
+	print('usage: ' + argv[0] + ' default-program')
+	exit(1)
+
+# look for a launch.json file in upstream conf dirs
+config_files = [config_dir + '/launch.json' for config_dir in [
+		dirs + '/' + 'i3' for dirs in
+			([expandvars('$XDG_CONFIG_HOME')] if 'XDG_CONFIG_HOME' in environ else []) +
+			[expanduser('~/.config')] +
+			(expandvars('$XDG_CONFIG_DIRS').split(':') if 'XDG_CONFIG_DIRS' in environ else []) +
+			['/etc/xdg']
+	] + [
+		expanduser('~/.i3'),
+		'/etc/i3',
+	]
+]
+
+def get_config_file():
+	for config_file in config_files:
+		if isfile(config_file):
+			return config_file
+
+	return False
+
+def get_config():
+	config_file = get_config_file()
+	if config_file:
+		f = open(config_file, 'r')
+		conf = load(f)
+		f.close()
+
+		return conf
+
+	return False
+
+default_program = argv[1]
+conf = get_config()
+wm = i3()
+
+focused_workspace = wm.get_focused_workspace()
+
+program = conf.get(str(focused_workspace), default_program)
+
+# this looks awfully insecure :S
+shell = '/usr/bin/sh'
+os.execle(shell, shell, '-c', 'exec ' + program, environ)
