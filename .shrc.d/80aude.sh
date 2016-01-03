@@ -42,12 +42,7 @@ alias sued=sudoedit
 alias vi='ex -v -u NONE'
 alias view='vim -R'
 alias vimdiff='vim -d'
-for vim in 'vim.gtk' 'vimx'; do
-    if which $vim >/dev/null 2>&1; then
-        alias vim=$vim
-	break
-    fi
-done
+# vim is set in bin/vim
 
 # -- function --
 cl() {
@@ -121,7 +116,7 @@ done
 # do not show the "Done" message, so run all in subshell
 (
     (
-        if which unlock-keyring >/dev/null 2>&1; then
+        if command -v unlock-keyring >/dev/null 2>&1; then
             unlock-keyring&
         fi
     )&
