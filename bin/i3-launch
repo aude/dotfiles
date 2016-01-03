@@ -2,9 +2,9 @@
 
 from lib.i3 import i3
 from sys import argv
+from subprocess import call
 from os.path import expanduser,expandvars,isfile
-from os import environ,execv
-import os
+from os import environ,execle
 from json import load
 
 '''
@@ -23,8 +23,9 @@ example launch.json:
 '''
 
 if len(argv) != 2:
-	# execv i3-nagbar
-	print('usage: ' + argv[0] + ' default-program')
+	msg = 'usage: ' + argv[0] + ' default-program'
+	print(msg)
+	call(['i3-nagbar', '-m', msg])
 	exit(1)
 
 # look for a launch.json file in upstream conf dirs
@@ -68,4 +69,4 @@ program = conf.get(str(focused_workspace), default_program)
 
 # this looks awfully insecure :S
 shell = '/usr/bin/sh'
-os.execle(shell, shell, '-c', 'exec ' + program, environ)
+execle(shell, shell, '-c', 'exec ' + program, environ)
