@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for vim in vimx vim.gtk vim vi; do
+    if command -v $vim > /dev/null 2>&1; then
+        exec $vim "$@"
+    fi
+done
+
+echo "$0: no vim installed ..."
+exit 1

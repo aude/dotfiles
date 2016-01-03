@@ -21,6 +21,7 @@
 !src/.keepdir
 !bin
 !bin/.keepdir
+!bin/vim
 !bin/selecta
 !bin/i3-launch
 !bin/lib
