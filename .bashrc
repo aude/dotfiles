@@ -1,14 +1,7 @@
-# .bashrc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-if [[ -f ~/.shrc ]]; then
-	source ~/.shrc
-fi
+# Source global definitions, local conf and our shrc system
+source_these=( /etc/bashrc ~/.bashrc.local ~/.shrc )
+for file in "${source_these[@]}"; do
+	if [[ -f $file ]]; then
+		source "$file"
+	fi
+done
