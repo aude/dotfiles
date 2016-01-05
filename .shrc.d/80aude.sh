@@ -109,12 +109,18 @@ fi
 # (( selecta ))
 
 # -- source --
-source_these=( ~/.dircolors ~/src/z/z.sh $VEW )
+source_these=( ~/src/z/z.sh $VEW )
 for file in "${source_these[@]}"; do
     if [[ -f $file ]]; then
         source "$file"
     fi
 done
+
+if [[ -r ~/.dircolors ]]; then
+    eval $(dircolors -b ~/.dircolors)
+else
+    eval $(dircolors -b)
+fi
 
 # -- cmd --
 # do not show the "Done" message, so run all in subshell

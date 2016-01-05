@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
-"Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bronson/vim-visual-star-search'
@@ -94,7 +94,8 @@ else
 endif
 
 "let g:solarized_termcolors=256 " use if not using Solarized in terminal emulator
-"colorscheme solarized
+"let g:solarized_termtrans=1
+colorscheme solarized
 
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown

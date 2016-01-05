@@ -11,6 +11,8 @@
 !.config/mr/config.d/aude.vcsh
 !.mrconfig
 !.inputrc
+!.dircolors
+!.Xresources
 !.shrc
 !.shrc.d
 !.shrc.d/80aude.sh
