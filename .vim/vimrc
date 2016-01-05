@@ -67,7 +67,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " -- Vundle --
 
-syntax enable
+syntax on
 
 set clipboard=unnamedplus
 "set number
