@@ -1,15 +1,4 @@
 # -- env --
-path_dirs=( ~/.local/bin ~/bin )
-for dir in ${path_dirs[@]}; do
-    if [[ -z $(grep "$dir" <<< $PATH) ]]; then
-        export PATH=$dir:$PATH
-    fi
-done
-
-export EDITOR=vim
-export PASSWORD_STORE_DIR=~/key/password-store/
-export GOPATH=~/dev/go
-
 # quickfix for byobu
 if [ "$TERM" = "screen" ]; then
     export TERM=screen-256color
@@ -18,13 +7,6 @@ fi
 # -- interactive --
 # the rest is only relevant in interactive shells
 [[ $- != *i* ]] && return
-
-# virtualenvwrapper
-#VEW=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-VEW=/usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
-if [[ -f $VEW ]]; then
-    export WORKON_HOME=~/dev/py/env
-fi
 
 # -- alias --
 alias ..='cd ..'
