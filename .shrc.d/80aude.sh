@@ -30,6 +30,18 @@ alias view='vim -R'
 alias vimdiff='vim -d'
 # vim is set in bin/vim
 
+# bashrc
+if [[ -n $BASH_VERSION ]]; then
+    # http://blog.sanctum.geek.nz/better-bash-history/
+    shopt -s histappend
+    HISTFILESIZE=1000000
+    HISTSIZE=1000000
+    HISTCONTROL=ignoreboth
+    HISTIGNORE='ls:bg:fg:history:..:...:la:l:ll:lh:b'
+    shopt -s cmdhist
+    PROMPT_COMMAND='history -a'
+fi
+
 # -- function --
 cl() {
     if [[ $@ ]]; then
