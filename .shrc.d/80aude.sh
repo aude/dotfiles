@@ -39,7 +39,9 @@ if [[ -n $BASH_VERSION ]]; then
     HISTCONTROL=ignoreboth
     HISTIGNORE='ls:bg:fg:history:..:...:la:l:ll:lh:b'
     shopt -s cmdhist
-    PROMPT_COMMAND='history -a'
+    if [[ $PROMPT_COMMAND != *'history -a'* ]]; then
+        PROMPT_COMMAND="${PROMPT_COMMAND+${PROMPT_COMMAND};}history -a"
+    fi
 fi
 
 # -- function --
