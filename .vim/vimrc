@@ -86,12 +86,13 @@ let mapleader=","
 map j gj
 map k gk
 
-"if has('gui_running')
-if $DISPLAY != ""
-	set background=light
-else
-	set background=dark
-endif
+" " if in graphical environment, use light theme. else, use dark
+" if $DISPLAY != ""
+" 	set background=light
+" else
+" 	set background=dark
+" endif
+set background=dark
 
 "let g:solarized_termcolors=256 " use if not using Solarized in terminal emulator
 "let g:solarized_termtrans=1
