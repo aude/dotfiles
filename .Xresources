@@ -17,26 +17,26 @@
 
 ! Dark
 
-! #define S_base03        #002b36
-! #define S_base02        #073642
-! #define S_base01        #586e75
-! #define S_base00        #657b83
-! #define S_base0         #839496
-! #define S_base1         #93a1a1
-! #define S_base2         #eee8d5
-! #define S_base3         #fdf6e3
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
 
 ! Light
 
-#define S_base03        #fdf6e3
-#define S_base02        #eee8d5
-#define S_base01        #93a1a1
-#define S_base00        #839496
-#define S_base0         #657b83
-#define S_base1         #586e75
-#define S_base2         #073642
-#define S_base3         #002b36
+! #define S_base03        #fdf6e3
+! #define S_base02        #eee8d5
+! #define S_base01        #93a1a1
+! #define S_base00        #839496
+! #define S_base0         #657b83
+! #define S_base1         #586e75
+! #define S_base2         #073642
+! #define S_base3         #002b36
 
 ! To only apply colors to your terminal, for example, prefix
 ! the color assignment statement with its name. Example:
@@ -73,8 +73,15 @@
 !
 !
 
-! enable if infinality or alike is installed
-!Xft.lcdfilter: lcddefault
+! enable lcdfilter if infinality or alike is installed
+Xft.lcdfilter:	lcddefault
+Xft.autohint:	0
+Xft.hintstyle:	hintfull
+! Xft.hintstyle:	hintslight
+Xft.hinting:	1
+Xft.antialias:	1
+Xft.rgba:	rgb
+Xft.dpi:	96
 
 ! URxvt
 !
@@ -150,21 +157,18 @@
 ! URxvt*borderColor: colour
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for
-!URxvt*font: xft:Droid Sans Mono Regular:size=10:antialias=true
-URxvt*font: xft:Droid Sans Mono Regular:size=10
+URxvt*font: xft:Source Code Pro:pixelsize=15,xft:Droid Sans Mono:pixelsize=15,xft:DejaVu Sans Mono:pixelsize=15,xft:mono:pixelsize=15
 
-URxvt.letterSpace: -5
-
-! URxvt*boldFont: fontlist
+URxvt*boldFont: xft:Source Code Pro:pixelsize=15:Bold,xft:Droid Sans Mono:pixelsize=15:Bold,xft:DejaVu Sans Mono:pixelsize=15:Bold,xft:mono:pixelsize=15:Bold
 
 ! 
-! URxvt*italicFont: fontlist
+URxvt*italicFont: xft:Source Code Pro:pixelsize=15:Italic,xft:Droid Sans Mono:pixelsize=15:Italic,xft:DejaVu Sans Mono:pixelsize=15:Italic,xft:mono:pixelsize=15:Italic
 
 ! The font list to use for displaying bold, italic or bold italic characters, respectively.
-! URxvt*boldItalicFont: fontlist
+URxvt*boldItalicFont: xft:Source Code Pro:pixelsize=15:Bold:Italic,xft:Droid Sans Mono:pixelsize=15:Bold:Italic,xft:DejaVu Sans Mono:pixelsize=15:Bold:Italic,xft:mono:pixelsize=15:Bold:Italic
 
 ! When font styles are not enabled, or this option is enabled (True, option -is, the default), bold/blink font styles imply high intensity
-! URxvt*intensityStyles: boolean
+URxvt*intensityStyles: false
 
 ! Set window title string, the default title is the command-line specified after the -e option, if any, otherwise the application name; option
 ! URxvt*title: string
@@ -354,4 +358,11 @@ URxvt*scrollBar: false
 ! Turn on/off ISO 14755 5.2 mode (default enabled).
 ! URxvt*iso14755_52: boolean
 
+! Xterm
+!
+!
 
+XTerm*termName: xterm-256color
+! UTF-8
+XTerm*locale: true
+XTerm*faceName: xft:Source Code Pro:pixelsize=15,xft:Droid Sans Mono:pixelsize=15,xft:DejaVu Sans Mono:pixelsize=15,xft:mono:pixelsize=15
