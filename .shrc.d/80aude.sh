@@ -1,6 +1,6 @@
 # -- env --
 # quickfix for byobu
-if [ "$TERM" = "screen" ]; then
+if [[ $TERM == "screen" && -n $DISPLAY ]]; then
     export TERM=screen-256color
 fi
 
