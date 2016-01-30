@@ -120,10 +120,10 @@ fi
 
 # -- cmd --
 # do not show the "Done" message, so run all in subshell
-(
-    (
-        if command -v unlock-keyring >/dev/null 2>&1; then
-            unlock-keyring&
-        fi
-    )&
-)
+#(
+#    (
+#        if command -v unlock-keyring >/dev/null 2>&1; then
+#            unlock-keyring&
+#        fi
+#    )&
+#)
