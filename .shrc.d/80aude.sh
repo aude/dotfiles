@@ -74,7 +74,7 @@ if [[ -n $BASH_VERSION ]]; then
         READLINE_LINE="$READLINE_LINE$selected_path"
         READLINE_POINT=$(($READLINE_POINT + $(wc -m <<< "$selected_path")))
     }
-    if which selecta >/dev/null 2>&1; then
+    if command -v selecta >/dev/null 2>&1; then
         #bind '"\C-f" "$(find . -type f -not -regex \"$SELECTA_IGNORE\" \| selecta)\n"'
         bind -x '"\C-f":"insert-selecta-path-in-command-line"'
     fi
@@ -95,7 +95,7 @@ elif [[ -n $ZSH_VERSION ]]; then
         # run the command
         #zle accept-line
     }
-    if which selecta >/dev/null 2>&1; then
+    if command -v selecta >/dev/null 2>&1; then
         # Create the zle widget
         zle -N insert-selecta-path-in-command-line
         # Bind the key to the newly created widget
