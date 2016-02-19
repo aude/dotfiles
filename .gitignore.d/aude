@@ -55,6 +55,9 @@
 !.zprofile
 !.bashrc
 !.bash_profile
+!.gnupg
+!.gnupg/gpg.conf
+!.gnupg/gpg-agent.conf
 !.config/i3
 !.config/i3/**
 !.config/i3status
