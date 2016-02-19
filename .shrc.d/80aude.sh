@@ -104,6 +104,15 @@ elif [[ -n $ZSH_VERSION ]]; then
 fi
 # (( selecta ))
 
+# (( gpg-agent ))
+# set GnuPG TTY. `man 1 gpg-agent`
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye >/dev/null
+# (( gpg-agent ))
+
 # -- source --
 source_these=( ~/src/z/z.sh $VEW )
 for file in "${source_these[@]}"; do
