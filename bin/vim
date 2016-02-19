@@ -1,9 +1,8 @@
 #!/bin/sh
 
-for vim in vimx vim.gtk vim vi; do
-    if command -v $vim > /dev/null 2>&1; then
-        exec $vim "$@"
-    fi
+for vim in 'vimx' 'vim.gtk' 'vim' 'vi'; do
+	path=$(command -v "$vim" 2>/dev/null) && [ "$path" != "$0" ] || continue
+	exec "$path" "$@"
 done
 
 echo "$0: no vim installed ..."
