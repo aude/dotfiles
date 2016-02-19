@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for dex in 'dex-autostart' 'dex'; do
+	path=$(command -v "$dex" 2>/dev/null) && [ "$path" != "$0" ] || continue
+	exec "$path" "$@"
+done
+
+echo "$0: no dex installed ..."
+exit 1

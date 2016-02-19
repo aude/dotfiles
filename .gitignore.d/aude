@@ -24,6 +24,7 @@
 !bin
 !bin/.keepdir
 !bin/vim
+!bin/dex
 !bin/selecta
 !bin/i3-launch
 !bin/lib

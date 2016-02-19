@@ -176,3 +176,5 @@ bar {
 #assign [class="^Firefox$"] 4
 for_window [class="^Firefox$"] focus child, layout tabbed, focus
 
+# autostart
+exec --no-startup-id dex --autostart --environment i3
