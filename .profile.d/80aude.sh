@@ -35,14 +35,3 @@ fi
 #		source "$file"
 #	fi
 #done
-
-# -- cmd --
-# do not show the "Done" message, so run all in subshell
-(
-	(
-		# gpg-agent
-		if ! pgrep -u "$(whoami)" 'gpg-agent' >/dev/null 2>&1; then
-			gpg-connect-agent /bye >/dev/null 2>&1
-		fi
-	)&
-)
