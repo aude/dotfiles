@@ -110,7 +110,9 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+if command -v gpg-connect-agent >/dev/null 2>&1; then
+    gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
 # (( gpg-agent ))
 
 # -- source --
