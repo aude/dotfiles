@@ -21,6 +21,7 @@ alias less='less -r'
 alias git='git -c color.ui'
 unalias ag 2>/dev/null
 alias ag='ag --color'
+alias tree='tree -C'
 
 alias b=byobu
 alias sued=sudoedit
