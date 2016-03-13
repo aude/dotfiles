@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case "$(setxkbmap -query | grep layout | awk '{print $NF}')" in
+	no)
+		setxkbmap us -variant dvorak
+		;;
+	us|*)
+		setxkbmap no
+		;;
+esac
+
+sysmodmap=/etc/X11/Xmodmap
+usermodmap=$HOME/.Xmodmap
+[ -r "$sysmodmap" ] && xmodmap "$sysmodmap"
+[ -r "$usermodmap" ] && xmodmap "$usermodmap"

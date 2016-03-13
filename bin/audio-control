@@ -1,0 +1,21 @@
+#!/bin/sh
+
+mute_pulseaudio() {
+	pactl -- set-sink-mute "$sink" "$1"
+}
+
+volume_pulseaudio() {
+	pactl -- set-sink-mute "$sink" "$1"
+	pactl -- set-sink-volume "$sink" "$1"
+}
+
+audiosystem=pulseaudio
+
+# set up vars
+case "$audiosystem" in
+	pulseaudio)
+		sink=$(pactl list sinks short | awk "\$2 ~ /$1/ {print \$1}")
+		;;
+esac
+
+$2_$audiosystem "$3"

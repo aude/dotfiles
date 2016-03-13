@@ -1,0 +1,8 @@
+#!/bin/sh
+
+id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
+ppid=$(xprop -id "$id" | awk '/_NET_WM_PID\(CARDINAL\)/{print $NF}')
+pid=$(pgrep --parent "$ppid" | head -n1)
+cwd=$(readlink /proc/"$pid"/cwd)
+
+echo "$cwd"

@@ -27,6 +27,10 @@
 !bin/i3-launch
 !bin/lib
 !bin/lib/i3.py
+!bin/urxvt-launch
+!bin/xcwd
+!bin/xkb-layout-toggle
+!bin/audio-control
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
@@ -49,7 +53,7 @@
 !.vimperator
 !.vimperatorrc
 !.gitconfig
-!.zshrc
+!.zshrc.local
 !.zprofile
 !.bashrc
 !.bash_profile
