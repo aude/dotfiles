@@ -38,6 +38,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'editorconfig/editorconfig-vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'vim-scripts/arnoldc.vim'
 "" plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 "" Git plugin not hosted on GitHub
@@ -100,10 +101,10 @@ colorscheme solarized
 
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 " force go
 autocmd BufNewFile,BufReadPost *.go set filetype=go
-
+" force ArnoldC
+autocmd BufNewFile,BufReadPost *.arnoldc set filetype=arnoldc
 " Django syntax highlighting
 autocmd BufNewFile,BufReadPost */dev/py/*/templates/*.html set filetype=htmldjango
 
