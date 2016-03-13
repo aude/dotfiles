@@ -7,6 +7,22 @@ set page-completions off
 #set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
-# https://stackoverflow.com/a/1030206/5779151
+# emacs mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# vi mode
+set editing-mode vi
+$if mode=vi
+set keymap vi-command
+# these are for vi-command mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set keymap vi-insert
+# these are for vi-insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-l": clear-screen
+"\C-n": next-history
+"\C-p": previous-history
+$endif
