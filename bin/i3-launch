@@ -1,7 +1,9 @@
 #!/bin/sh
 
 if [ "$#" -eq 0 ]; then
-	echo "Usage: $(basename "$0") <default command> [-<workspace name> <command> ...]"
+	message="Usage: $(basename "$0") <default command> [-<workspace name> <command> ...]"
+	echo "$message" 1>&2
+	i3-nagbar -m "$message"
 	exit 1
 fi
 
