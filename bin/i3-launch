@@ -1,72 +1,18 @@
-#!/usr/bin/env python3
+#!/bin/sh
 
-from lib.i3 import i3
-from sys import argv
-from subprocess import call
-from os.path import expanduser,expandvars,isfile
-from os import environ,execle
-from json import load
+if [ "$#" -eq 0 ]; then
+	echo "Usage: $(basename "$0") <default command> [-<workspace name> <command> ...]"
+	exit 1
+fi
 
-'''
-launch different programs per workspace
+default_command=$1; shift
+current_workspace_name=$(i3-msg -t get_workspaces | jq '.[] | select(.focused) | .name' | tr -d '"')
+while [ -n "$1" ]; do
+	if [ "$1" = "-$current_workspace_name" ]; then
+		shift
+		exec $1
+	fi
+	shift
+done
 
-specify the default program as the first argument,
-and configure the exceptions in launch.json
-
-example launch.json:
-
-	{
-		"4": "firefox",
-		"7": "nautilus"
-	}
-
-'''
-
-if len(argv) != 2:
-	msg = 'usage: ' + argv[0] + ' default-program'
-	print(msg)
-	call(['i3-nagbar', '-m', msg])
-	exit(1)
-
-# look for a launch.json file in upstream conf dirs
-config_files = [config_dir + '/launch.json' for config_dir in [
-		dirs + '/' + 'i3' for dirs in
-			([expandvars('$XDG_CONFIG_HOME')] if 'XDG_CONFIG_HOME' in environ else []) +
-			[expanduser('~/.config')] +
-			(expandvars('$XDG_CONFIG_DIRS').split(':') if 'XDG_CONFIG_DIRS' in environ else []) +
-			['/etc/xdg']
-	] + [
-		expanduser('~/.i3'),
-		'/etc/i3',
-	]
-]
-
-def get_config_file():
-	for config_file in config_files:
-		if isfile(config_file):
-			return config_file
-
-	return False
-
-def get_config():
-	config_file = get_config_file()
-	if config_file:
-		f = open(config_file, 'r')
-		conf = load(f)
-		f.close()
-
-		return conf
-
-	return {}
-
-default_program = argv[1]
-conf = get_config()
-wm = i3()
-
-focused_workspace = wm.get_focused_workspace()
-
-program = conf.get(str(focused_workspace), default_program)
-
-# this looks awfully insecure :S
-shell = '/usr/bin/sh'
-execle(shell, shell, '-c', 'exec ' + program, environ)
+exec $default_command
