@@ -22,13 +22,17 @@ fi
 export SSH_AGENT=' '
 
 # virtualenvwrapper
-#VEW=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-VEW=/usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
-if [[ -f $VEW ]]; then
-	export WORKON_HOME=~/dev/py/env
-fi
+for VEW in /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh "$(which virtualenvwrapper_lazy.sh)"; do
+	if [[ -f $VEW ]]; then
+		export WORKON_HOME=~/dev/py/env
+		break
+	fi
+done
 
-# -- source --
+# nvm
+export NVM_DIR=~/src/nvm
+
+## -- source --
 #source_these=()
 #for file in "${source_these[@]}"; do
 #	if [[ -f $file ]]; then
