@@ -24,6 +24,7 @@ export SSH_AGENT=' '
 # virtualenvwrapper
 for VEW in /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh "$(which virtualenvwrapper_lazy.sh)"; do
 	if [[ -f $VEW ]]; then
+		export VEW
 		export WORKON_HOME=~/dev/py/env
 		break
 	fi
