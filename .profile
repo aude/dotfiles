@@ -1,8 +1,8 @@
 # ~/etc/profile
 if [ -d ~/.profile.d ]; then
   for i in ~/.profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
+    if [ -r "$i" ]; then
+      . "$i"
     fi
   done
   unset i
