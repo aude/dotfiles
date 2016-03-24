@@ -12,4 +12,7 @@ checkout = git clone 'https://github.com/aude/system-conf.git' 'system-conf'
 checkout = git clone 'https://github.com/rupa/z.git' 'z'
 [src/selecta]
 checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
+[src/nvm]
+checkout = git clone 'https://github.com/creationix/nvm.git' 'nvm'
+update = git pull origin master && git checkout `git describe --abbrev=0 --tags`
 
