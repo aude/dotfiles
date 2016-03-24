@@ -40,7 +40,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-launch 'sh -c urxvt -cd "$(xcwd)"' -4 'firefox'
+bindsym $mod+Return exec i3-launch "urxvt -cd '$(xcwd)'" -4 'firefox'
 
 # kill focused window
 bindsym $mod+Shift+q kill

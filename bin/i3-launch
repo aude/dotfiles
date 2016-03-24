@@ -1,20 +1,23 @@
 #!/bin/sh
 
-if [ "$#" -eq 0 ]; then
+if [ $# -eq 0 ]; then
 	usage_message="Usage: $(basename "$0") <default command> [-<workspace name> <command> ...]"
 	echo "$usage_message" 1>&2
 	i3-nagbar -m "$usage_message"
 	exit 1
 fi
 
-default_command=$1; shift
+# default command
+command=$1; shift
+
+# workspace specific command
 current_workspace_name=$(i3-msg -t get_workspaces | jq '.[] | select(.focused) | .name' | tr -d '"')
-while [ -n "$1" ]; do
+while [ $# -ne 0 ]; do
 	if [ "$1" = "-$current_workspace_name" ]; then
 		shift
-		exec $1
+		command=$1
 	fi
 	shift
 done
 
-exec $default_command
+eval "exec $command"
