@@ -41,7 +41,7 @@ if [[ -n $BASH_VERSION ]]; then
 	HISTIGNORE='ls:bg:fg:history:..:...:la:l:ll:lh:b'
 	shopt -s cmdhist
 	if [[ $PROMPT_COMMAND != *'history -a'* ]]; then
-		PROMPT_COMMAND="${PROMPT_COMMAND+${PROMPT_COMMAND};}history -a"
+		PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a'
 	fi
 fi
 
