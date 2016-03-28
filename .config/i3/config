@@ -195,5 +195,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 for_window [class="^Firefox$"] focus child, layout tabbed, focus
 for_window [class="^chromium-browser$"] focus child, layout tabbed, focus
 
+# background image
+exec --no-startup-id feh --bg-fill --no-fehbg ~/.config/background-image
+
 # autostart
 exec --no-startup-id dex --autostart --environment i3
