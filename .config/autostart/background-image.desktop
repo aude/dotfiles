@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=background-image
+Comment=Set background image
+Exec=feh --bg-fill --no-fehbg ~/.config/background-image
+Type=Application
+NoDisplay=true
+OnlyShowIn=i3;
