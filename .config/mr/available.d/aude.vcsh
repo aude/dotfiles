@@ -8,6 +8,8 @@ include = for vimrc in ~/.vimrc ~/.vim/vimrc; do test -f "$vimrc" && break; done
 [src/system-conf]
 checkout = git clone 'https://github.com/aude/system-conf.git' 'system-conf'
 
+[src/zsh-completions]
+checkout = git clone 'https://github.com/zsh-users/zsh-completions.git' 'zsh-completions'
 [src/z]
 checkout = git clone 'https://github.com/rupa/z.git' 'z'
 [src/selecta]
