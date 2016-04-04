@@ -50,8 +50,11 @@
 !.vim/vimrc
 !.vimperatorrc
 !.gitconfig
+!.zshrc.pre
 !.zshrc.local
 !.zprofile
+!.zsh_completions.d
+!.zsh_completions.d/.keepdir
 !.bashrc
 !.bash_profile
 !.gnupg
