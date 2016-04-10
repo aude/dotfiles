@@ -16,5 +16,3 @@ map D :winclose<CR>
 set toolbars=none,tabs
 
 source! .vimperatorrc.local
-
-" vim: set ft=vimperator:

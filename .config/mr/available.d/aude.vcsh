@@ -51,5 +51,5 @@ checkout = git clone 'https://github.com/editorconfig/editorconfig-vim.git' 'edi
 checkout = git clone 'https://github.com/chase/vim-ansible-yaml.git' 'vim-ansible-yaml'
 [.vim/bundle/arnoldc.vim]
 checkout = git clone 'https://github.com/vim-scripts/arnoldc.vim.git' 'arnoldc.vim'
-[.vim/bundle/vimperator-labs]
-checkout = git clone 'https://github.com/vimperator/vimperator-labs.git' 'vimperator-labs'
+
+# vim: filetype=conf
