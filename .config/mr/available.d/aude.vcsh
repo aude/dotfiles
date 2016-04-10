@@ -10,9 +10,8 @@ checkout = git clone --depth 1 'https://github.com/zsh-users/zsh-completions.git
 checkout = git clone --depth 1 'https://github.com/rupa/z.git' 'z'
 [src/selecta]
 checkout = git clone --depth 1 'https://github.com/garybernhardt/selecta.git' 'selecta'
-[src/nvm]
-checkout = git clone --depth 1 'https://github.com/creationix/nvm.git' 'nvm'
-update = git pull origin master && git checkout `git describe --abbrev=0 --tags`
+[src/n]
+checkout = git clone --depth 1 'https://github.com/tj/n.git' 'n'
 
 # vim
 [DEFAULT]

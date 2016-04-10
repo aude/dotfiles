@@ -29,6 +29,7 @@
 !bin/xkb-layout-toggle
 !bin/audio-control
 !bin/xedit
+!bin/n
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini

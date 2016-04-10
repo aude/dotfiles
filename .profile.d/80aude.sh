@@ -1,14 +1,8 @@
 # -- env --
-path_dirs=( ~/.local/bin ~/bin )
-for dir in ${path_dirs[@]}; do
-	if [[ -z $(grep "$dir" <<< $PATH) ]]; then
-		export PATH=$dir:$PATH
-	fi
-done
-
 export EDITOR=vim
 export PASSWORD_STORE_DIR=~/key/password-store/
 export GOPATH=~/dev/go
+export ANDROID_HOME=~/src/android-sdk-linux
 
 # gpg-agent
 # use gpg-agent's SSH agent emulation
@@ -30,8 +24,15 @@ for VEW in /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh "$(which virtu
 	fi
 done
 
-# nvm
-export NVM_DIR=~/src/nvm
+# n
+export N_PREFIX=~/src/n
+
+path_dirs=( ~/.local/bin ~/bin $N_PREFIX/bin $ANDROID_HOME/tools )
+for dir in ${path_dirs[@]}; do
+	if [[ -z $(grep "$dir" <<< $PATH) ]]; then
+		export PATH=$dir:$PATH
+	fi
+done
 
 ## -- source --
 #source_these=()
