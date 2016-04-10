@@ -1,10 +1,6 @@
 [${XDG_CONFIG_HOME:-$HOME/.config}/vcsh/repo.d/aude.git]
 checkout = vcsh clone 'https://github.com/aude/dotfiles.git' 'aude'
 
-[DEFAULT]
-# update Vundle repos. assume all "Plugin" directives to be pointing to GitHub repos
-include = for vimrc in ~/.vimrc ~/.vim/vimrc; do test -f "$vimrc" && break; done; test -f "$vimrc" && cat "$vimrc" | grep "^Plugin '" | sed -r "s|^Plugin '([^/]+/([^']+))'.*|[.vim/bundle/\2]\ncheckout = git clone --recursive 'https://github.com/\1.git' '\2'\nupdate = git pull --recurse-submodules \"\$@\"\nskip = [ \"\$1\" = update ] \&\& ! hours_since \"\$1\" 16\n|" || true
-
 [src/system-conf]
 checkout = git clone 'https://github.com/aude/system-conf.git' 'system-conf'
 
@@ -18,3 +14,42 @@ checkout = git clone 'https://github.com/garybernhardt/selecta.git' 'selecta'
 checkout = git clone 'https://github.com/creationix/nvm.git' 'nvm'
 update = git pull origin master && git checkout `git describe --abbrev=0 --tags`
 
+# vim
+[DEFAULT]
+skip = [ "$1" = "update" ] && ! hours_since "$1" 16
+
+[.vim/bundle/vim-pathogen]
+checkout = git clone 'https://github.com/tpope/vim-pathogen.git' 'vim-pathogen'
+[.vim/bundle/vim-colors-solarized]
+checkout = git clone 'https://github.com/altercation/vim-colors-solarized.git' 'vim-colors-solarized'
+[.vim/bundle/nerdcommenter]
+checkout = git clone 'https://github.com/scrooloose/nerdcommenter.git' 'nerdcommenter'
+[.vim/bundle/vim-visual-star-search]
+checkout = git clone 'https://github.com/bronson/vim-visual-star-search.git' 'vim-visual-star-search'
+[.vim/bundle/YouCompleteMe]
+checkout = git clone --recursive 'https://github.com/Valloric/YouCompleteMe.git' 'YouCompleteMe'
+update = git pull --recurse-submodules "$@"
+[.vim/bundle/vim-trailing-whitespace]
+checkout = git clone 'https://github.com/bronson/vim-trailing-whitespace.git' 'vim-trailing-whitespace'
+[.vim/bundle/vim-unimpaired]
+checkout = git clone 'https://github.com/tpope/vim-unimpaired.git' 'vim-unimpaired'
+[.vim/bundle/vim-misc]
+checkout = git clone 'https://github.com/xolox/vim-misc.git' 'vim-misc'
+[.vim/bundle/vim-easytags]
+checkout = git clone 'https://github.com/xolox/vim-easytags.git' 'vim-easytags'
+[.vim/bundle/xmledit]
+checkout = git clone 'https://github.com/sukima/xmledit.git' 'xmledit'
+#[.vim/bundle/vim-easymotion]
+#checkout = git clone 'https://github.com/Lokaltog/vim-easymotion.git' 'vim-easymotion'
+[.vim/bundle/vim-javascript]
+checkout = git clone 'https://github.com/pangloss/vim-javascript.git' 'vim-javascript'
+[.vim/bundle/editorconfig-vim]
+checkout = git clone 'https://github.com/editorconfig/editorconfig-vim.git' 'editorconfig-vim'
+#[.vim/bundle/syntastic]
+#checkout = git clone 'https://github.com/scrooloose/syntastic.git' 'syntastic'
+[.vim/bundle/vim-ansible-yaml]
+checkout = git clone 'https://github.com/chase/vim-ansible-yaml.git' 'vim-ansible-yaml'
+[.vim/bundle/arnoldc.vim]
+checkout = git clone 'https://github.com/vim-scripts/arnoldc.vim.git' 'arnoldc.vim'
+[.vim/bundle/vimperator-labs]
+checkout = git clone 'https://github.com/vimperator/vimperator-labs.git' 'vimperator-labs'
