@@ -9,8 +9,12 @@ fi
 [[ $- != *i* ]] && return
 
 # -- alias --
-alias ..='cd ..'
-alias ...='cd ../..'
+# type dots to `cd ../../../...`
+what='..'; to='cd ..'
+while [[ ${#what} -lt 16 ]]; do
+    alias "$what"="$to"
+    what+='.'; to+='/..'
+done; unset to what
 alias ls='ls --color'
 alias la='ls --all'
 alias l='ls --almost-all'
