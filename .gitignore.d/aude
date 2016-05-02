@@ -67,5 +67,3 @@
 !.config/i3status/**
 !.Xresources
 !.Xmodmap
-!.config/autostart
-!.config/autostart/**
