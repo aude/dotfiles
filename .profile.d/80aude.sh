@@ -27,7 +27,7 @@ done
 # n
 export N_PREFIX=~/src/n
 
-path_dirs=( ~/.local/bin ~/bin $N_PREFIX/bin $ANDROID_HOME/tools )
+path_dirs=( ~/.local/bin ~/bin $GOPATH/bin $N_PREFIX/bin $ANDROID_HOME/tools )
 for dir in ${path_dirs[@]}; do
 	if [[ $PATH != *$dir* ]]; then
 		export PATH=$dir:$PATH
