@@ -58,6 +58,11 @@ if [[ -n $BASH_VERSION ]]; then
 	fi
 fi
 
+# zshrc
+if [[ -n $ZSH_VERSION ]]; then
+	setopt HIST_IGNORE_DUPS
+fi
+
 # -- function --
 cl() {
 	if [[ $@ ]]; then
