@@ -86,7 +86,7 @@ if [[ -n $BASH_VERSION ]]; then
 		selected_path=$(find . -type f -not -regex "$SELECTA_IGNORE" | selecta) || return
 		# Append the selection to the current command buffer.
 		READLINE_LINE="$READLINE_LINE$selected_path"
-		READLINE_POINT=$(($READLINE_POINT + $(wc -m <<< "$selected_path")))
+		READLINE_POINT=$((READLINE_POINT + $(wc -m <<< "$selected_path")))
 	}
 	if command -v selecta >/dev/null 2>&1; then
 		#bind '"\C-f" "$(find . -type f -not -regex \"$SELECTA_IGNORE\" \| selecta)\n"'
@@ -138,9 +138,9 @@ for file in "${source_these[@]}"; do
 done
 
 if [[ -r ~/.dircolors ]]; then
-	eval $(dircolors -b ~/.dircolors)
+	eval "$(dircolors -b ~/.dircolors)"
 else
-	eval $(dircolors -b)
+	eval "$(dircolors -b)"
 fi
 
 # -- cmd --
