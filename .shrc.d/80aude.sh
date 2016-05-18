@@ -23,8 +23,6 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui'
-unalias ag 2>/dev/null
-alias ag='ag --color'
 alias tree='tree -C'
 
 alias b=byobu
@@ -34,6 +32,17 @@ alias vi='ex -v -u NONE'
 alias view='vim -R'
 alias vimdiff='vim -d'
 # vim is set in bin/vim
+
+# The Silver Searcher
+unalias ag 2>/dev/null
+ag() {
+    ag_file=$(/usr/bin/which ag)
+	if [[ $? -eq 0 ]]; then
+        "$ag_file" "$@"
+    else
+        grep -Ri "$@"
+    fi
+}
 
 # bashrc
 if [[ -n $BASH_VERSION ]]; then
