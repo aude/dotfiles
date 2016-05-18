@@ -3,6 +3,10 @@ grml_theme_add_token spath '%c ' '%B' '%b'
 zstyle ':prompt:grml:left:setup' items rc virtual-env change-root spath vcs
 zstyle ':prompt:grml:right:setup' items
 
+# partial match
+# ~oh-my-zsh
+zstyle ':completion:*:complete:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 # vi mode
 bindkey -v
 # ~http://dougblack.io/words/zsh-vi-mode.html
