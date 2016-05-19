@@ -36,12 +36,9 @@ alias vimdiff='vim -d'
 # The Silver Searcher
 unalias ag 2>/dev/null
 ag() {
-    ag_file=$(/usr/bin/which ag)
-	if [[ $? -eq 0 ]]; then
-        "$ag_file" "$@"
-    else
-        grep -Ri "$@"
-    fi
+    ag_file=$(/usr/bin/which ag 2>/dev/null) && echo "$ag_file" "$@" && return
+    ack_file=$(/usr/bin/which ack 2>/dev/null) && echo "$ack_file" "$@" && return
+    grep -Ri "$@"
 }
 
 # bashrc
