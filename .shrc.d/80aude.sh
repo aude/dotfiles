@@ -23,6 +23,8 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui'
+unalias ag 2>/dev/null
+alias ag='ag --color'
 alias tree='tree -C'
 
 alias b=byobu
@@ -32,14 +34,6 @@ alias vi='ex -v -u NONE'
 alias view='vim -R'
 alias vimdiff='vim -d'
 # vim is set in bin/vim
-
-# The Silver Searcher
-unalias ag 2>/dev/null
-ag() {
-    ag_file=$(/usr/bin/which ag 2>/dev/null) && "$ag_file" "$@" && return
-    ack_file=$(/usr/bin/which ack 2>/dev/null) && "$ack_file" "$@" && return
-    grep -Ri "$@"
-}
 
 # bashrc
 if [[ -n $BASH_VERSION ]]; then
@@ -71,6 +65,20 @@ cl() {
 }
 dev() {
 	cd ~/dev/"$1"
+}
+# code search
+s() {
+    if command -v ag >/dev/null 2>&1; then
+        ag "$@"
+    elif command -v ack >/dev/null 2>&1; then
+        ack --smart-case "$@"
+    elif command -v grep >/dev/null 2>&1; then
+        # smart case
+        grep -R $(echo "$1" | grep -q '[[:upper:]]' || echo '-i') "$@"
+    else
+        echo "how is this even...? no grep?!" 1>&2
+        return 1
+    fi
 }
 
 # (( selecta ))
