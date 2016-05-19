@@ -68,11 +68,12 @@ dev() {
 }
 # code search
 s() {
-    if command -v ag >/dev/null 2>&1; then
+    # check for actual binaries, aliases and stuff won't work without
+    if /usr/bin/which ag >/dev/null 2>&1; then
         ag "$@"
-    elif command -v ack >/dev/null 2>&1; then
+    elif /usr/bin/which ack >/dev/null 2>&1; then
         ack --smart-case "$@"
-    elif command -v grep >/dev/null 2>&1; then
+    elif /usr/bin/which grep >/dev/null 2>&1; then
         # smart case
         grep -R $(echo "$1" | grep -q '[[:upper:]]' || echo '-i') "$@"
     else
