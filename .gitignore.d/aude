@@ -26,6 +26,7 @@
 !bin/selecta
 !bin/i3-launch
 !bin/xcwd
+!bin/xkb-layout-set
 !bin/xkb-layout-toggle
 !bin/audio-control
 !bin/xedit
