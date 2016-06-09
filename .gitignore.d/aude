@@ -29,6 +29,7 @@
 !bin/xkb-layout-set
 !bin/xkb-layout-toggle
 !bin/audio-control
+!bin/player-control
 !bin/xedit
 !bin/n
 !.mozilla

@@ -182,14 +182,17 @@ bindsym XF86Tools exec gnome-control-center
 # toggle xkb layout
 bindsym $mod+space exec xkb-layout-toggle
 
+# video
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+
 # audio
 bindsym XF86AudioMute exec audio-control analog mute toggle
 bindsym XF86AudioLowerVolume exec audio-control analog volume '-2.5%'
 bindsym XF86AudioRaiseVolume exec audio-control analog volume '+2.5%'
 
-# video
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# player
+bindsym $mod+p exec player-control play toggle
 
 #assign [class="^Firefox$"] 4
 for_window [class="^Firefox$"] focus child, layout tabbed, focus

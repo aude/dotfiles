@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case "$1" in
+	play)
+		case "$2" in
+			toggle)
+				if pgrep quodlibet >/dev/null 2>&1; then
+					quodlibet --play-pause
+				fi
+				;;
+			*)	exit 1 ;;
+		esac
+		;;
+	*)	exit 1 ;;
+esac
