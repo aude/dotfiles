@@ -8,8 +8,10 @@ case "$1" in
 					quodlibet --play-pause
 				fi
 				;;
-			*)	exit 1 ;;
+			*)	exit 1
+                ;;
 		esac
 		;;
-	*)	exit 1 ;;
+	*)	exit 1
+        ;;
 esac
