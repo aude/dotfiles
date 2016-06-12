@@ -99,10 +99,9 @@ if [[ -n $BASH_VERSION ]]; then
 		selected_path=$(printf '%q' "$selected_path")
 		# Append the selection to the current command buffer.
 		READLINE_LINE="$READLINE_LINE$selected_path"
-		READLINE_POINT=$((READLINE_POINT + $(wc -m <<< "$selected_path")))
+		READLINE_POINT=$(( READLINE_POINT + ${#selected_path} ))
 	}
 	if command -v selecta >/dev/null 2>&1; then
-		#bind '"\C-f" "$(find . -type f -not -regex \"$SELECTA_IGNORE\" \| selecta)\n"'
 		bind -x '"\C-f":"insert-selecta-path-in-command-line"'
 	fi
 # else if ZSH
