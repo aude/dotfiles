@@ -95,6 +95,8 @@ if [[ -n $BASH_VERSION ]]; then
 		local selected_path
 		# Find the path; abort if the user doesn't select anything.
 		selected_path=$(find . -type f -not -regex "$SELECTA_IGNORE" | selecta) || return
+		# Quote the path.
+		selected_path=$(printf '%q' "$selected_path")
 		# Append the selection to the current command buffer.
 		READLINE_LINE="$READLINE_LINE$selected_path"
 		READLINE_POINT=$((READLINE_POINT + $(wc -m <<< "$selected_path")))
@@ -113,8 +115,10 @@ elif [[ -n $ZSH_VERSION ]]; then
 		echo
 		# Find the path; abort if the user doesn't select anything.
 		selected_path=$(find . -type f -not -regex "$SELECTA_IGNORE" | selecta) || return
+		# Quote the path.
+		selected_path=$(printf '%q' "$selected_path")
 		# Append the selection to the current command buffer.
-		eval 'LBUFFER="$LBUFFER$selected_path"'
+		LBUFFER="$LBUFFER$selected_path"
 		# Redraw the prompt since Selecta has drawn several new lines of text.
 		zle reset-prompt
 		# run the command
