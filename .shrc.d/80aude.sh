@@ -28,6 +28,7 @@ alias ag='ag --color'
 alias tree='tree -C'
 
 alias b=byobu
+alias o=xdg-open
 alias sued=sudoedit
 
 alias vi='ex -v -u NONE'
