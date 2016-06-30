@@ -9,9 +9,9 @@ case "$1" in
 				fi
 				;;
 			*)	exit 1
-                ;;
+				;;
 		esac
 		;;
 	*)	exit 1
-        ;;
+		;;
 esac
