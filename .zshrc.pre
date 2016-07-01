@@ -1,7 +1,8 @@
 # user completions
 fpath_dirs=( ~/src/zsh-completions/src ~/.zsh_completions.d )
-for dir in ${fpath_dirs[@]}; do
+for dir in "${fpath_dirs[@]}"; do
         if [[ -z ${fpath[(r)$dir]} ]]; then
                 fpath=( $dir $fpath )
         fi
 done
+unset fpath_dirs dir

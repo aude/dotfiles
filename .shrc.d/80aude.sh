@@ -14,7 +14,7 @@ what='..'; to='cd ..'
 while [[ ${#what} -lt 16 ]]; do
     alias "$what"="$to"
     what+='.'; to+='/..'
-done; unset to what
+done; unset what to
 alias ls='ls --color'
 alias la='ls --all'
 alias l='ls --almost-all'
@@ -151,6 +151,7 @@ for file in "${source_these[@]}"; do
 		source "$file"
 	fi
 done
+unset source_these
 
 if [[ -r ~/.dircolors ]]; then
 	eval "$(dircolors -b ~/.dircolors)"

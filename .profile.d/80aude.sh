@@ -33,6 +33,7 @@ for dir in ${path_dirs[@]}; do
 		export PATH=$dir:$PATH
 	fi
 done
+unset path_dirs dir
 
 ## -- source --
 #source_these=()
@@ -41,3 +42,4 @@ done
 #		source "$file"
 #	fi
 #done
+#unset source_these

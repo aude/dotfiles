@@ -5,3 +5,4 @@ for file in "${source_these[@]}"; do
 		source "$file"
 	fi
 done
+unset source_these file
