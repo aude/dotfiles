@@ -69,3 +69,5 @@
 !.config/i3status/**
 !.Xresources
 !.Xmodmap
+!.config/cower
+!.config/cower/**
