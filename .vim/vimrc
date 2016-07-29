@@ -20,15 +20,12 @@ set ruler
 
 set clipboard=unnamedplus
 
-" map
-let mapleader=","
-map j gj
-map k gk
-
-" vars
-let g:NERDCustomDelimiters = {
-    \ 'phtml': { 'left': '<?php /*', 'right': '*/ ?>' }
-\ }
+" set better cache dirs
+set directory=~/.vim/swap
+set backupdir=~/.vim/backup
+set viewdir=~/.vim/view
+set undodir=~/.vim/undo
+set viminfo+=n~/.vim/viminfo
 
 " " if in graphical environment, use light theme. else, use dark
 " if $DISPLAY != ""
@@ -43,6 +40,11 @@ set background=dark
 " ignore errors, gracefully fall back
 silent! colorscheme solarized
 
+" map
+let mapleader=","
+map j gj
+map k gk
+
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " force go
@@ -52,12 +54,18 @@ autocmd BufNewFile,BufReadPost *.arnoldc set filetype=arnoldc
 " Django syntax highlighting
 autocmd BufNewFile,BufReadPost */dev/py/*/templates/*.html set filetype=htmldjango
 
-" set better cache dirs
-set directory=~/.vim/swap
-set backupdir=~/.vim/backup
-set viewdir=~/.vim/view
-set undodir=~/.vim/undo
-set viminfo+=n~/.vim/viminfo
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    autocmd!
+    autocmd BufReadPre  *.bin let &bin=1
+    autocmd BufReadPost *.bin if &bin | %!xxd
+    autocmd BufReadPost *.bin set ft=xxd | endif
+    autocmd BufWritePre *.bin if &bin | %!xxd -r
+    autocmd BufWritePre *.bin endif
+    autocmd BufWritePost *.bin if &bin | %!xxd
+    autocmd BufWritePost *.bin set nomod | endif
+augroup END
+
 " easytags.vim
 let g:easytags_file = '~/.vim/tags'
 
@@ -66,6 +74,11 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
+
+" NERDCommenter
+let g:NERDCustomDelimiters = {
+    \ 'phtml': { 'left': '<?php /*', 'right': '*/ ?>' }
+\ }
 
 " matchit.vim
 source $VIMRUNTIME/macros/matchit.vim

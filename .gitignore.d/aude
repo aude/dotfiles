@@ -6,9 +6,9 @@
 !.config
 !.config/mr
 !.config/mr/available.d
-!.config/mr/available.d/aude.vcsh
+!.config/mr/available.d/aude
 !.config/mr/config.d
-!.config/mr/config.d/aude.vcsh
+!.config/mr/config.d/aude
 !.mrconfig
 !.inputrc
 !.dircolors
