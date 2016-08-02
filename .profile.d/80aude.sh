@@ -1,6 +1,6 @@
 # -- env --
 export EDITOR=vim
-export VISUAL=xedit
+export VISUAL=$EDITOR
 export PASSWORD_STORE_DIR=~/key/password-store/
 export GOPATH=~/dev/go
 export ANDROID_HOME=~/src/android-sdk-linux
