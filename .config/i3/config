@@ -195,8 +195,8 @@ bindsym XF86AudioRaiseVolume exec audio-control analog volume '+2.5%'
 bindsym $mod+p exec player-control play toggle
 
 #assign [class="^Firefox$"] 4
-for_window [class="^Firefox$"] focus child, layout tabbed, focus
-for_window [class="^chromium-browser$"] focus child, layout tabbed, focus
+for_window [class="^Firefox$"] focus child, layout tabbed
+for_window [class="^chromium-browser$"] focus child, layout tabbed
 
 # background image
 exec --no-startup-id feh --bg-fill --no-fehbg ~/.config/background-image
