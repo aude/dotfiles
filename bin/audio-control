@@ -1,12 +1,15 @@
 #!/bin/sh
 
 mute_pulseaudio() {
-	pactl -- set-sink-mute "$sink" "$1"
+	exec pactl -- set-sink-mute "$sink" "$1"
 }
 
 volume_pulseaudio() {
-	pactl -- set-sink-mute "$sink" "$1"
-	pactl -- set-sink-volume "$sink" "$1"
+	exec pactl -- set-sink-volume "$sink" "$1"
+}
+
+use_pulseaudio() {
+	exec pactl -- set-default-sink "$sink"
 }
 
 audiosystem=pulseaudio
@@ -14,7 +17,7 @@ audiosystem=pulseaudio
 # set up vars
 case "$audiosystem" in
 	pulseaudio)
-		sink=$(pactl list sinks short | awk "\$2 ~ /$1/ {print \$1}")
+		sink=$(pactl list sinks short | awk "\$2 ~ /$1/ {print \$2}")
 		;;
 esac
 
