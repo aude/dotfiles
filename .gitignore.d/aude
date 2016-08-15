@@ -30,6 +30,7 @@
 !bin/xkb-layout-toggle
 !bin/audio-control
 !bin/player-control
+!bin/video-control
 !bin/xedit
 !bin/n
 !bin/archbootstrap

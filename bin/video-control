@@ -1,0 +1,18 @@
+#!/bin/bash
+
+outputs=$(xrandr | awk '$2 ~ /connected/ && $3 ~ /^[^(]/ {print $1}')
+
+case "$2" in
+	use)
+		args=(--output "$1" --auto)
+		# disable all other active outputs
+		for output in $(echo "${outputs[@]}" | grep -v "$1"); do
+			args+=(--output "$output" --off)
+		done
+
+		exec xrandr "${args[@]}"
+		;;
+	*)
+		exit 1
+		;;
+esac
