@@ -12,6 +12,8 @@ checkout = git clone --depth 1 'https://github.com/rupa/z.git' 'z'
 checkout = git clone --depth 1 'https://github.com/garybernhardt/selecta.git' 'selecta'
 [src/n]
 checkout = git clone --depth 1 'https://github.com/tj/n.git' 'n'
+[src/archbootstrap]
+checkout = git clone --depth 1 'https://github.com/aude/archbootstrap.git' 'archbootstrap'
 
 # vim
 [DEFAULT]
