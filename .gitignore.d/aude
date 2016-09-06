@@ -40,7 +40,7 @@
 !.mozilla/firefox/waitwhat.default
 !.mozilla/firefox/waitwhat.default/user.js
 !.mozilla/firefox/waitwhat.default/searchplugins
-!.mozilla/firefox/waitwhat.default/searchplugins/**
+!.mozilla/firefox/waitwhat.default/searchplugins/*.xml
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
