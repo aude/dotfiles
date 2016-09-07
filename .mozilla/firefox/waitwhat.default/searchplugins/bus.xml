@@ -3,7 +3,7 @@
     <Description>Reiseplanlegger</Description>
     <InputEncoding>UTF-8</InputEncoding>
     <Image width="16" height="16">data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAABAAAAAujWQALo1kAC6NZAAolnAAHaeHAAHRwQAB0cEAAdHBAC6NZAAB0cEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqqeqqqqqqqqqpmaaqqqqqqqmZmZaqqqqqqZmZmZqqqqqpmZmZmZqqqqmZmZmZmaqqqqpZmZmZqqqqqqqpWZmqqqqqqqgJGaqqqqqgiIiJqqqqCIiIiIjqqqiIiIiIiqqqqIiIiIaqqqqoiIiCqqqqqqiIaqqqqqqqqiqqqqqqqrv/wAA4f8AAOB/AADgHwAA4AcAAOADAAD4AwAA/4MAAP+DAAD8AwAA4AMAAOAHAADgHwAA4H8AAOP/AADv/wAA</Image>
-    <SearchForm>https://www.kolumbus.no/reiseplanlegger/?From=Luramyrveien%20(Sandnes)&amp;To=Lunden%20(Sandnes)</SearchForm>
+    <SearchForm>https://www.kolumbus.no/reiseplanlegger/?From=Porsmyrveien%20(Sandnes)&amp;To=Gangeren%20(Sandnes)</SearchForm>
     <Url type="text/html" method="GET" template="https://www.kolumbus.no/reiseplanlegger/" resultDomain="kolumbus.no">
         <Param name="From" value="Porsmyrveien (Sandnes)"/>
         <Param name="To" value="Gangeren (Sandnes)"/>
