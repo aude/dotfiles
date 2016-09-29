@@ -170,14 +170,16 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-	position top
+        position top
 }
 
 # start mail
-bindsym $mod+Shift+m exec mail-launch
+bindsym XF86Mail exec mail-launch
+bindsym $mod+Control+m exec mail-launch
 
 # start GNOME Control Center
 bindsym XF86Tools exec gnome-control-center
+bindsym $mod+Control+s exec gnome-control-center
 
 # toggle xkb layout
 bindsym $mod+space exec xkb-layout-toggle
@@ -186,14 +188,19 @@ bindsym $mod+space exec xkb-layout-toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 bindsym XF86Display exec video-toggle
+bindsym $mod+Control+v exec video-toggle
 
 # audio
 bindsym XF86AudioMute exec audio-control analog mute toggle
 bindsym XF86AudioLowerVolume exec audio-control analog volume '-2.5%'
+bindsym $mod+Control+Down exec audio-control analog volume '-2.5%'
 bindsym XF86AudioRaiseVolume exec audio-control analog volume '+2.5%'
+bindsym $mod+Control+Up exec audio-control analog volume '+2.5%'
 
 # player
-bindsym $mod+p exec player-control play toggle
+bindsym $mod+Control+p exec player-control play toggle
+bindsym $mod+Control+Right exec player-control play next
+bindsym $mod+Control+Left exec player-control play prev
 
 #assign [class="^Firefox$"] 4
 for_window [class="^Firefox$"] focus child, layout tabbed
