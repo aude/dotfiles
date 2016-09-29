@@ -15,4 +15,6 @@ map D :winclose<CR>
 
 set toolbars=none,tabs
 
+set editor=xedit
+
 source! .vimperatorrc.local
