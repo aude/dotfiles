@@ -8,5 +8,5 @@
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [alias]
-	#subdir-pages-push = subtree push --prefix $1 origin gh-pages
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
+	delete-remote-branch = push origin --delete
