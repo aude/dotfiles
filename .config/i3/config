@@ -200,7 +200,7 @@ bindsym $mod+Control+Up exec audio-control analog volume '+2.5%'
 # player
 bindsym $mod+Control+p exec player-control play toggle
 bindsym $mod+Control+Right exec player-control play next
-bindsym $mod+Control+Left exec player-control play prev
+bindsym $mod+Control+Left exec player-control play previous
 
 #assign [class="^Firefox$"] 4
 for_window [class="^Firefox$"] focus child, layout tabbed
