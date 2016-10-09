@@ -1,6 +1,6 @@
 #!/bin/bash
 
-outputs=$(xrandr | awk '$2 ~ /connected/ && $3 ~ /^[^(]/ {print $1}')
+outputs=$(xrandr | awk '$2 == "connected" && $3 ~ /^[^(]/ {print $1}')
 
 case "$2" in
 	use)

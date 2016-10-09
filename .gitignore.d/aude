@@ -31,6 +31,7 @@
 !bin/audio-control
 !bin/player-control
 !bin/video-control
+!bin/video-toggle
 !bin/xedit
 !bin/n
 !bin/archbootstrap

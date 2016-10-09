@@ -1,0 +1,30 @@
+#!/bin/sh
+
+connected=$(xrandr | awk '$2 == "connected" {print $1}')
+actives=$(xrandr | awk '$2 == "connected" && $3 ~ /^[^(]/ {print $1}')
+
+# let's choose the first active output as the active output
+active=$(echo "$actives" | head -n1)
+
+# choose the connected output after the active output
+# use twice the input in case the active output is the last output
+switch_to=$( (echo "$connected"; echo "$connected") | awk "\$0 == \"$active\" {getline; print; exit}")
+
+case "$switch_to" in
+	eDP*)
+		video-control "$switch_to" use
+		audio-control analog use
+		;;
+	HDMI*)
+		video-control "$switch_to" use
+		audio-control hdmi use
+		;;
+	DP*)
+		video-control "$switch_to" use
+		audio-control analog use
+		;;
+	*)
+		video-control "$switch_to" use
+		audio-control analog use
+		;;
+esac
