@@ -4,13 +4,14 @@ outputs=$(xrandr | awk '$2 == "connected" && $3 ~ /^[^(]/ {print $1}')
 
 case "$2" in
 	use)
-		args=(--output "$1" --auto)
+		arguments=(--output "$1" --auto)
+
 		# disable all other active outputs
 		for output in $(echo "${outputs[@]}" | grep -v "$1"); do
-			args+=(--output "$output" --off)
+			arguments+=(--output "$output" --off)
 		done
 
-		exec xrandr "${args[@]}"
+		exec xrandr "${arguments[@]}"
 		;;
 	*)
 		exit 1
