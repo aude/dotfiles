@@ -35,6 +35,7 @@
 !bin/xedit
 !bin/n
 !bin/archbootstrap
+!bin/tmp
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini

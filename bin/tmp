@@ -1,0 +1,9 @@
+#!/bin/sh
+
+tmpdir=$(mktemp -d)
+
+cd "$tmpdir"
+
+"$SHELL"
+
+rm -rf "$tmpdir"
