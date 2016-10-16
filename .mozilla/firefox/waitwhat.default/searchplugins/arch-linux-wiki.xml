@@ -4,6 +4,10 @@
     <InputEncoding>UTF-8</InputEncoding>
     <Image width="16" height="16">data:image/x-icon;base64,R0lGODlhEAAQAKUmABeS0BeS0RiS0ReT0BeT0ReT0hiT0RiT0hiU0huV0hyV0h2V0x2W0iOZ0ySZ1SSa1Caa1Cyd1S+e1jKf1jCg1jKg1jOg1zSh1zeh2Dei1zqk2Duk2Dql2T2l2T6l2UOo2UOo2kao2UWq20qr206t3E+t3P///////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEKAD8ALAAAAAAQABAAAAZVwJ9wSCwahQbH8ch4LI2QBuc5pEgiGOoQc5mEqB+Qp6MBUUmjjaWSES1LFwVhTlgsE3PAgY4w0gNCAnRFdAREdAeHg0NzBUQDdAZEBgFzjI5PllpFQQA7</Image>
     <SearchForm>https://wiki.archlinux.org</SearchForm>
+    <Url type="application/x-suggestions+json" method="GET" template="https://wiki.archlinux.org/api.php">
+        <Param name="action" value="opensearch"/>
+        <Param name="search" value="{searchTerms}"/>
+    </Url>
     <Url type="text/html" method="GET" template="https://wiki.archlinux.org/index.php/Special:Search">
         <Param name="search" value="{searchTerms}"/>
 	<Param name="go" value="Go"/>
