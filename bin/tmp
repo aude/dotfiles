@@ -1,9 +1,7 @@
 #!/bin/sh
 
-tmpdir=$(mktemp -d)
-
-cd "$tmpdir"
+cd "$(mktemp -d)"
 
 "$SHELL"
 
-rm -rf "$tmpdir"
+rm -rf "$(pwd)"
