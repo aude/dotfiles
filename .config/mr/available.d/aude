@@ -51,6 +51,6 @@ checkout = git clone --depth 1 'https://github.com/editorconfig/editorconfig-vim
 [.vim/bundle/vim-ansible-yaml]
 checkout = git clone --depth 1 'https://github.com/chase/vim-ansible-yaml.git' 'vim-ansible-yaml'
 [.vim/bundle/arnoldc.vim]
-checkout = git clone --depth 1 'https://github.com/vim-scripts/arnoldc.vim.git' 'arnoldc.vim'
+checkout = git clone --depth 1 'https://github.com/aude/arnoldc.vim.git' 'arnoldc.vim'
 
 # vim: filetype=conf
