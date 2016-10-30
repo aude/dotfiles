@@ -2,14 +2,9 @@
 
 case "$(setxkbmap -query | grep layout | awk '{print $NF}')" in
 	no)
-		xkb-layout-set us -variant dvorak
+		exec xkb-layout-set us -variant dvorak
 		;;
 	us|*)
-		xkb-layout-set no
+		exec xkb-layout-set no
 		;;
 esac
-
-sysmodmap=/etc/X11/Xmodmap
-usermodmap=$HOME/.Xmodmap
-[ -r "$sysmodmap" ] && xmodmap "$sysmodmap"
-[ -r "$usermodmap" ] && xmodmap "$usermodmap"
