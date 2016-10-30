@@ -182,7 +182,7 @@ bindsym XF86Tools exec gnome-control-center
 bindsym $mod+Control+s exec gnome-control-center
 
 # toggle xkb layout
-bindsym $mod+space exec xkb-layout-toggle
+bindsym $mod+space exec --no-startup-id xkb-layout-toggle
 
 # video
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
