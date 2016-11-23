@@ -5,8 +5,13 @@
     <Image width="16" height="16">data:image/x-icon;base64,R0lGODlhEAAQAKUmABeS0BeS0RiS0ReT0BeT0ReT0hiT0RiT0hiU0huV0hyV0h2V0x2W0iOZ0ySZ1SSa1Caa1Cyd1S+e1jKf1jCg1jKg1jOg1zSh1zeh2Dei1zqk2Duk2Dql2T2l2T6l2UOo2UOo2kao2UWq20qr206t3E+t3P///////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEKAD8ALAAAAAAQABAAAAZVwJ9wSCwahQbH8ch4LI2QBuc5pEgiGOoQc5mEqB+Qp6MBUUmjjaWSES1LFwVhTlgsE3PAgY4w0gNCAnRFdAREdAeHg0NzBUQDdAZEBgFzjI5PllpFQQA7</Image>
     <SearchForm>https://aur.archlinux.org/packages/?SB=v&amp;SO=d&amp;K=</SearchForm>
     <Url type="text/html" method="GET" template="https://aur.archlinux.org/packages.php">
+        <!-- Key: [search] -->
         <Param name="K" value="{searchTerms}"/>
+	<!-- Offset: 0 (to start from the first result) -->
         <Param name="O" value="0"/>
-        <Param name="do_Search" value="Go"/>
+	<!-- Sort By: votes -->
+        <Param name="SB" value="v"/>
+	<!-- Sort Order: descending -->
+        <Param name="SO" value="d"/>
     </Url>
 </SearchPlugin>
