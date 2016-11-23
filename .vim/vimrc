@@ -12,6 +12,7 @@ filetype plugin indent on
 set undofile
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 
 set showcmd
