@@ -4,16 +4,25 @@ case "$1" in
 	play)
 		case "$2" in
 			toggle)
+				if pgrep vlc >/dev/null 2>&1; then
+					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+				fi
 				if pgrep quodlibet >/dev/null 2>&1; then
 					exec quodlibet --play-pause
 				fi
 				;;
 			next)
+				if pgrep vlc >/dev/null 2>&1; then
+					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+				fi
 				if pgrep quodlibet >/dev/null 2>&1; then
 					exec quodlibet --next
 				fi
 				;;
 			previous)
+				if pgrep vlc >/dev/null 2>&1; then
+					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+				fi
 				if pgrep quodlibet >/dev/null 2>&1; then
 					exec quodlibet --previous
 				fi
