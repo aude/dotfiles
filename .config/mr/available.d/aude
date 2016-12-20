@@ -1,56 +1,58 @@
 [${XDG_CONFIG_HOME:-$HOME/.config}/vcsh/repo.d/aude.git]
-checkout = vcsh clone 'https://github.com/aude/dotfiles.git' 'aude'
+checkout = vcsh clone 'https://github.com/aude/dotfiles.git' "$(basename "$MR_REPO" '.git')"
 
 [src/system-conf]
-checkout = git clone 'https://github.com/aude/system-conf.git' 'system-conf'
+checkout = git clone 'https://github.com/aude/system-conf.git' "$(basename "$MR_REPO")"
 
 [src/zsh-completions]
-checkout = git clone --depth 1 'https://github.com/zsh-users/zsh-completions.git' 'zsh-completions'
+checkout = git clone --depth 1 'https://github.com/zsh-users/zsh-completions.git' "$(basename "$MR_REPO")"
 [src/z]
-checkout = git clone --depth 1 'https://github.com/rupa/z.git' 'z'
+checkout = git clone --depth 1 'https://github.com/rupa/z.git' "$(basename "$MR_REPO")"
 [src/selecta]
-checkout = git clone --depth 1 'https://github.com/garybernhardt/selecta.git' 'selecta'
+checkout = git clone --depth 1 'https://github.com/garybernhardt/selecta.git' "$(basename "$MR_REPO")"
 [src/n]
-checkout = git clone --depth 1 'https://github.com/tj/n.git' 'n'
+checkout = git clone --depth 1 'https://github.com/tj/n.git' "$(basename "$MR_REPO")"
 [src/archbootstrap]
-checkout = git clone --depth 1 'https://github.com/aude/archbootstrap.git' 'archbootstrap'
+checkout = git clone --depth 1 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
 
 # vim
 [DEFAULT]
 skip = [ "$1" = "update" ] && ! hours_since "$1" 16
 
 [.vim/bundle/vim-pathogen]
-checkout = git clone --depth 1 'https://github.com/tpope/vim-pathogen.git' 'vim-pathogen'
+checkout = git clone --depth 1 'https://github.com/tpope/vim-pathogen.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-colors-solarized]
-checkout = git clone --depth 1 'https://github.com/altercation/vim-colors-solarized.git' 'vim-colors-solarized'
+checkout = git clone --depth 1 'https://github.com/altercation/vim-colors-solarized.git' "$(basename "$MR_REPO")"
 [.vim/bundle/nerdcommenter]
-checkout = git clone --depth 1 'https://github.com/scrooloose/nerdcommenter.git' 'nerdcommenter'
+checkout = git clone --depth 1 'https://github.com/scrooloose/nerdcommenter.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-visual-star-search]
-checkout = git clone --depth 1 'https://github.com/bronson/vim-visual-star-search.git' 'vim-visual-star-search'
-[.vim/bundle/YouCompleteMe]
-checkout = git clone --depth 1 --recursive 'https://github.com/Valloric/YouCompleteMe.git' 'YouCompleteMe'
-update = git pull --recurse-submodules "$@"
+checkout = git clone --depth 1 'https://github.com/bronson/vim-visual-star-search.git' "$(basename "$MR_REPO")"
+[.vim/bundle/tabular]
+checkout = git clone --depth 1 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-trailing-whitespace]
-checkout = git clone --depth 1 'https://github.com/bronson/vim-trailing-whitespace.git' 'vim-trailing-whitespace'
+checkout = git clone --depth 1 'https://github.com/bronson/vim-trailing-whitespace.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-unimpaired]
-checkout = git clone --depth 1 'https://github.com/tpope/vim-unimpaired.git' 'vim-unimpaired'
+checkout = git clone --depth 1 'https://github.com/tpope/vim-unimpaired.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-misc]
-checkout = git clone --depth 1 'https://github.com/xolox/vim-misc.git' 'vim-misc'
+checkout = git clone --depth 1 'https://github.com/xolox/vim-misc.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-easytags]
-checkout = git clone --depth 1 'https://github.com/xolox/vim-easytags.git' 'vim-easytags'
+checkout = git clone --depth 1 'https://github.com/xolox/vim-easytags.git' "$(basename "$MR_REPO")"
 [.vim/bundle/xmledit]
-checkout = git clone --depth 1 'https://github.com/sukima/xmledit.git' 'xmledit'
+checkout = git clone --depth 1 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
+[.vim/bundle/YouCompleteMe]
+checkout = git clone --depth 1 --recursive 'https://github.com/Valloric/YouCompleteMe.git' "$(basename "$MR_REPO")"
+update = git pull --recurse-submodules "$@"
 #[.vim/bundle/vim-easymotion]
-#checkout = git clone --depth 1 'https://github.com/Lokaltog/vim-easymotion.git' 'vim-easymotion'
+#checkout = git clone --depth 1 'https://github.com/Lokaltog/vim-easymotion.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-javascript]
-checkout = git clone --depth 1 'https://github.com/pangloss/vim-javascript.git' 'vim-javascript'
+checkout = git clone --depth 1 'https://github.com/pangloss/vim-javascript.git' "$(basename "$MR_REPO")"
 [.vim/bundle/editorconfig-vim]
-checkout = git clone --depth 1 'https://github.com/editorconfig/editorconfig-vim.git' 'editorconfig-vim'
+checkout = git clone --depth 1 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
 #[.vim/bundle/syntastic]
-#checkout = git clone --depth 1 'https://github.com/scrooloose/syntastic.git' 'syntastic'
+#checkout = git clone --depth 1 'https://github.com/scrooloose/syntastic.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-ansible-yaml]
-checkout = git clone --depth 1 'https://github.com/chase/vim-ansible-yaml.git' 'vim-ansible-yaml'
+checkout = git clone --depth 1 'https://github.com/chase/vim-ansible-yaml.git' "$(basename "$MR_REPO")"
 [.vim/bundle/arnoldc.vim]
-checkout = git clone --depth 1 'https://github.com/aude/arnoldc.vim.git' 'arnoldc.vim'
+checkout = git clone --depth 1 'https://github.com/aude/arnoldc.vim.git' "$(basename "$MR_REPO")"
 
 # vim: filetype=conf
