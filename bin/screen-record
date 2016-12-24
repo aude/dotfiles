@@ -1,0 +1,41 @@
+#!/bin/sh
+
+file_out=$1
+
+if [ -z "$file_out" ]; then
+    echo "usage: $(basename "$0") <file>" >&2
+    exit 1
+fi
+
+get_screen_size() {
+	xdpyinfo | grep dimensions | head -n1 | awk '{print $2}'
+}
+
+case "$file_out" in
+	*.mkv)
+		exec ffmpeg -f 'x11grab' -video_size "$(get_screen_size)" -i ':0.0' "$file_out"
+		;;
+	*.mp4)
+		# -vf 'format=yuv420p' to be compatible with outdated players ~https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
+		exec ffmpeg -f 'x11grab' -video_size "$(get_screen_size)" -i ':0.0' -vf 'format=yuv420p' "$file_out"
+		;;
+	*.webm)
+		exec ffmpeg -f 'x11grab' -video_size "$(get_screen_size)" -i ':0.0' -crf 10 -b:v '1M' "$file_out"
+		;;
+	*.gif)
+		# ~http://stackoverflow.com/q/6079150
+		video=$(mktemp)
+		palette=$(mktemp)
+
+		# record temporary video file
+		ffmpeg -f 'x11grab' -video_size "$(get_screen_size)" -r 20 -i ':0.0' -c:v 'libx264' -preset ultrafast -crf 0 -f matroska -vf 'scale=-1:ih/1.5:flags=lanczos' - > "$video"
+
+		# generate palette
+		ffmpeg -i "$video" -vf palettegen -c:v png -f image2 - > "$palette"
+
+		# make GIF
+		ffmpeg -i "$video" -i "$palette" -lavfi paletteuse "$file_out"
+
+		rm "$video" "$palette"
+		;;
+esac

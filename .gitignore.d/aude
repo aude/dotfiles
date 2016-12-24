@@ -36,6 +36,7 @@
 !bin/n
 !bin/archbootstrap
 !bin/tmp
+!bin/screen-record
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
