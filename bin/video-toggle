@@ -1,14 +1,21 @@
 #!/bin/sh
 
 connected=$(xrandr | awk '$2 == "connected" {print $1}')
-actives=$(xrandr | awk '$2 == "connected" && $3 ~ /^[^(]/ {print $1}')
+actives=$(xrandr | awk '$2 == "connected" && ($3 ~ /^[1-9]/ || $4 ~ /^[1-9]/) {print $1}')
 
 # let's choose the first active output as the active output
-active=$(echo "$actives" | head -n1)
+active=$(printf '%s' "$actives" | head -n1)
 
-# choose the connected output after the active output
-# use twice the input in case the active output is the last output
-switch_to=$( (echo "$connected"; echo "$connected") | awk "\$0 == \"$active\" {getline; print; exit}")
+# if any display is active
+if [ -n "$active" ]; then
+    # choose the connected output after the active output
+    # use twice the input in case the active output is the last output
+    switch_to=$(printf '%s\n%s' "$connected" "$connected" | awk "\$0 == \"$active\" {getline; print; exit}")
+# if no display is active
+else
+    # choose the first connected output
+    switch_to=$(printf '%s' "$connected" | head -n1)
+fi
 
 case "$switch_to" in
 	eDP*)
