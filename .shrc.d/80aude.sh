@@ -23,15 +23,18 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui'
+alias sift='sift --git --color --err-skip-line-length'
 unalias ag 2>/dev/null
 alias ag='ag --color'
 alias tree='tree -C'
+
+alias cower='cower --rsort=votes'
 
 alias b=byobu
 alias o=xdg-open
 alias sued=sudoedit
 
-alias vi='ex -v -u NONE'
+alias vi='vim -u NONE -N'
 alias view='vim -R'
 alias vimdiff='vim -d'
 # vim is set in bin/vim
@@ -67,10 +70,12 @@ cl() {
 dev() {
 	cd ~/dev/"$1"
 }
-# code search
+# (( code search ))
 s() {
     # check for actual binaries, aliases and stuff won't work without
-    if /usr/bin/which ag >/dev/null 2>&1; then
+    if /usr/bin/which sift >/dev/null 2>&1; then
+        sift --smart-case "$@"
+    elif /usr/bin/which ag >/dev/null 2>&1; then
         ag "$@"
     elif /usr/bin/which ack >/dev/null 2>&1; then
         ack --smart-case "$@"
@@ -82,65 +87,90 @@ s() {
         return 1
     fi
 }
+# (( code search ))
 
-# (( selecta ))
-# Run Selecta in the current working directory, appending the selected path, if
-# any, to the current command, followed by a space.
-export SELECTA_IGNORE='\(.*node_modules.*\)\|\(.*\.git.*\)'
+# (( file search ))
+# bind ctrl-f to fuzzy-find a file and append it to the command line
+function print_files() {
+    # prefer 'sift' command
+    if command -v sift >/dev/null 2>&1; then
+        sift --git --targets
+    # fall back to 'find' command
+    else
+        # skip .git directories
+        find . -name .git -prune -o -type f -print
+    fi
+}
+function choose() {
+    # prefer 'fzf' command
+    if command -v fzf >/dev/null 2>&1; then
+        fzf --cycle
+    # fail if it's not here
+    else
+        echo 'install "fzf" to use this functionality' >&2
+        return 1
+    fi
+}
+# command to select a file
+function select_file() {
+    print_files | choose
+}
+
 # if BASH
 if [[ -n $BASH_VERSION ]]; then
-	# ~https://gist.github.com/aaronj1335/7090969
-	# if we've got the 'selecta' command (https://github.com/garybernhardt/selecta)
-	# then bind ctrl-b to fuzzy-find a file and insert it on the command line
-	function insert-selecta-path-in-command-line() {
-		local selected_path
-		# Find the path; abort if the user doesn't select anything.
-		selected_path=$(find . -type f -not -regex "$SELECTA_IGNORE" | selecta) || return
-		# Quote the path.
-		selected_path=$(printf '%q' "$selected_path")
-		# Append the selection to the current command buffer.
-		READLINE_LINE="$READLINE_LINE$selected_path"
-		READLINE_POINT=$(( READLINE_POINT + ${#selected_path} ))
-	}
-	if command -v selecta >/dev/null 2>&1; then
-		bind -x '"\C-f":"insert-selecta-path-in-command-line"'
-	fi
+
+    # ~https://gist.github.com/aaronj1335/7090969
+    function append-fuzzyfind-path-to-command-line() {
+        local selected_path
+        # Find the path; abort if the user doesn't select anything.
+        selected_path=$(select_file) || return
+        # Quote the path.
+        selected_path=$(printf '%q' "$selected_path")
+        # Append the selection to the current command buffer.
+        READLINE_LINE="$READLINE_LINE$selected_path "
+        READLINE_POINT=${#READLINE_LINE}
+    }
+
+    # bind the key to the widget
+    bind -x '"\C-f":"append-fuzzyfind-path-to-command-line"'
+
 # else if ZSH
 elif [[ -n $ZSH_VERSION ]]; then
-	# Run Selecta in the current working directory, appending the selected path, if
-	# any, to the current command, followed by a space.
-	function insert-selecta-path-in-command-line() {
-		local selected_path
-		# Print a newline or we'll clobber the old prompt.
-		echo
-		# Find the path; abort if the user doesn't select anything.
-		selected_path=$(find . -type f -not -regex "$SELECTA_IGNORE" | selecta) || return
-		# Quote the path.
-		selected_path=$(printf '%q' "$selected_path")
-		# Append the selection to the current command buffer.
-		LBUFFER="$LBUFFER$selected_path"
-		# Redraw the prompt since Selecta has drawn several new lines of text.
-		zle reset-prompt
-		# run the command
-		#zle accept-line
-	}
-	if command -v selecta >/dev/null 2>&1; then
-		# Create the zle widget
-		zle -N insert-selecta-path-in-command-line
-		# Bind the key to the newly created widget
-		bindkey "^F" "insert-selecta-path-in-command-line"
-	fi
+
+    function append-fuzzyfind-path-to-command-line() {
+        local selected_path
+        # Print a newline or we'll clobber the old prompt.
+        echo
+        # Find the path; abort if the user doesn't select anything.
+        selected_path=$(select_file) || return
+        # Quote the path.
+        selected_path=$(printf '%q' "$selected_path")
+        # Append the selection to the current command buffer.
+        LBUFFER="$LBUFFER$selected_path"
+        # Redraw the prompt since fuzzyfind has drawn several new lines of text.
+        zle reset-prompt
+        # run the command
+        #zle accept-line
+    }
+
+    # Create the zle widget
+    zle -N append-fuzzyfind-path-to-command-line
+    # Bind the key to the newly created widget
+    bindkey "^F" "append-fuzzyfind-path-to-command-line"
+
 fi
-# (( selecta ))
+# (( file search ))
 
 # (( gpg-agent ))
-# set GnuPG TTY. `man 1 gpg-agent`
-GPG_TTY=$(tty)
-export GPG_TTY
+if [[ -d ~/.gnupg ]]; then
+    # set GnuPG TTY. `man 1 gpg-agent`
+    GPG_TTY=$(tty)
+    export GPG_TTY
 
-# refresh gpg-agent tty in case user switches into an X session
-if command -v gpg-connect-agent >/dev/null 2>&1; then
-	gpg-connect-agent updatestartuptty /bye >/dev/null
+    # refresh gpg-agent tty in case user switches into an X session
+    if command -v gpg-connect-agent >/dev/null 2>&1; then
+        gpg-connect-agent updatestartuptty /bye >/dev/null
+    fi
 fi
 # (( gpg-agent ))
 

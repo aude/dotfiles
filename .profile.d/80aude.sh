@@ -16,20 +16,11 @@ fi
 # so RedHat's xinitrc-common does not launch a new ssh-agent
 export SSH_AGENT=' '
 
-# virtualenvwrapper
-for VEW in /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh "$(which virtualenvwrapper_lazy.sh)"; do
-	if [[ -f $VEW ]]; then
-		export VEW
-		export WORKON_HOME=~/dev/py/env
-		break
-	fi
-done
-
 # n
 export N_PREFIX=~/src/n
 
 path_dirs=( ~/.local/bin ~/bin $GOPATH/bin $N_PREFIX/bin $ANDROID_HOME/tools )
-for dir in ${path_dirs[@]}; do
+for dir in "${path_dirs[@]}"; do
 	if [[ $PATH != *$dir* ]]; then
 		export PATH=$dir:$PATH
 	fi
