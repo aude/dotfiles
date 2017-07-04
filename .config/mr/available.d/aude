@@ -13,8 +13,8 @@ checkout = git clone --depth 1 'https://github.com/tj/n.git' "$(basename "$MR_RE
 [src/archbootstrap]
 checkout = git clone --depth 1 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
 [dev/go/src/github.com/junegunn/fzf]
-checkout = go get github.com/junegunn/fzf/src/fzf
-update = go get -u github.com/junegunn/fzf/src/fzf
+checkout = go get github.com/junegunn/fzf
+update = go get -u github.com/junegunn/fzf
 [dev/go/src/github.com/svent/sift]
 checkout = go get github.com/svent/sift
 update = go get -u github.com/svent/sift
