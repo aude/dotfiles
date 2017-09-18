@@ -2,6 +2,6 @@
 
 cd "$(mktemp -d)"
 
-"$SHELL"
+trap "rm -rf '$(pwd)'" INT TERM EXIT
 
-rm -rf "$(pwd)"
+"$SHELL"
