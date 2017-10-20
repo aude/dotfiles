@@ -52,8 +52,8 @@ update = git pull --recurse-submodules "$@"
 checkout = git clone --depth 1 'https://github.com/pangloss/vim-javascript.git' "$(basename "$MR_REPO")"
 [.vim/bundle/editorconfig-vim]
 checkout = git clone --depth 1 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
-#[.vim/bundle/syntastic]
-#checkout = git clone --depth 1 'https://github.com/scrooloose/syntastic.git' "$(basename "$MR_REPO")"
+[.vim/bundle/syntastic]
+checkout = git clone --depth 1 'https://github.com/vim-syntastic/syntastic.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-ansible-yaml]
 checkout = git clone --depth 1 'https://github.com/chase/vim-ansible-yaml.git' "$(basename "$MR_REPO")"
 [.vim/bundle/arnoldc.vim]
