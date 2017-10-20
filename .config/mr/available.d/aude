@@ -48,14 +48,12 @@ checkout = git clone --depth 1 --recursive 'https://github.com/Valloric/YouCompl
 update = git pull --recurse-submodules "$@"
 #[.vim/bundle/vim-easymotion]
 #checkout = git clone --depth 1 'https://github.com/Lokaltog/vim-easymotion.git' "$(basename "$MR_REPO")"
-[.vim/bundle/vim-javascript]
-checkout = git clone --depth 1 'https://github.com/pangloss/vim-javascript.git' "$(basename "$MR_REPO")"
 [.vim/bundle/editorconfig-vim]
 checkout = git clone --depth 1 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
 [.vim/bundle/syntastic]
 checkout = git clone --depth 1 'https://github.com/vim-syntastic/syntastic.git' "$(basename "$MR_REPO")"
-[.vim/bundle/vim-ansible-yaml]
-checkout = git clone --depth 1 'https://github.com/chase/vim-ansible-yaml.git' "$(basename "$MR_REPO")"
+[.vim/bundle/vim-polyglot]
+checkout = git clone --depth 1 'https://github.com/sheerun/vim-polyglot.git' "$(basename "$MR_REPO")"
 [.vim/bundle/arnoldc.vim]
 checkout = git clone --depth 1 'https://github.com/aude/arnoldc.vim.git' "$(basename "$MR_REPO")"
 
