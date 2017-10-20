@@ -31,8 +31,6 @@ checkout = git clone --depth 1 'https://github.com/altercation/vim-colors-solari
 checkout = git clone --depth 1 'https://github.com/tpope/vim-commentary.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-visual-star-search]
 checkout = git clone --depth 1 'https://github.com/bronson/vim-visual-star-search.git' "$(basename "$MR_REPO")"
-[.vim/bundle/tabular]
-checkout = git clone --depth 1 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-trailing-whitespace]
 checkout = git clone --depth 1 'https://github.com/bronson/vim-trailing-whitespace.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-unimpaired]
@@ -43,6 +41,8 @@ checkout = git clone --depth 1 'https://github.com/xolox/vim-misc.git' "$(basena
 checkout = git clone --depth 1 'https://github.com/xolox/vim-easytags.git' "$(basename "$MR_REPO")"
 [.vim/bundle/xmledit]
 checkout = git clone --depth 1 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
+[.vim/bundle/tabular]
+checkout = git clone --depth 1 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
 [.vim/bundle/YouCompleteMe]
 checkout = git clone --depth 1 --recursive 'https://github.com/Valloric/YouCompleteMe.git' "$(basename "$MR_REPO")"
 update = git pull --recurse-submodules "$@"
