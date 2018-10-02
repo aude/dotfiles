@@ -83,8 +83,14 @@ autocmd BufNewFile,BufReadPost *.phtml setlocal commentstring=<?php\ /*%s*/\ ?>
 let g:easytags_file = '~/.vim/tags'
 
 " Syntastic
+" syntax check on file open
+let g:syntastic_check_on_open = 1
+" don't syntax check right before vim quits
+let g:syntastic_check_on_wq = 0
 " don't use phpcs opportunistically
 let g:syntastic_php_checkers = ['php', 'phpstan']
+" `shellcheck -x`
+let g:syntastic_sh_shellcheck_args = '-x'
 
 " matchit.vim
 source $VIMRUNTIME/macros/matchit.vim
