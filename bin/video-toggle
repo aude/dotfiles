@@ -1,7 +1,8 @@
 #!/bin/sh
 
-connected=$(xrandr | awk '$2 == "connected" {print $1}')
-actives=$(xrandr | awk '$2 == "connected" && ($3 ~ /^[1-9]/ || $4 ~ /^[1-9]/) {print $1}')
+state=$(xrandr)
+connected=$(echo "$state" | awk '$2 == "connected" {print $1}')
+actives=$(echo "$state" | awk '$2 == "connected" && ($3 ~ /^[1-9]/ || $4 ~ /^[1-9]/) {print $1}')
 
 # let's choose the first active output as the active output
 active=$(printf '%s' "$actives" | head -n1)
