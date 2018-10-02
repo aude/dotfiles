@@ -22,7 +22,7 @@ alias ll='la -l'
 alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
-alias git='git -c color.ui'
+alias git='git -c color.ui=auto'
 alias sift='sift --git --color --err-skip-line-length'
 unalias ag 2>/dev/null
 alias ag='ag --color'
