@@ -1,0 +1,41 @@
+# keyboard
+super + space
+    xkb-layout-toggle
+
+# audio
+XF86AudioMute
+    audio-control analog mute toggle
+super + control + m
+    audio-control analog mute toggle
+XF86AudioLowerVolume
+    audio-control analog volume '2.5%-'
+super + control + Down
+    audio-control analog volume '2.5%-'
+XF86AudioRaiseVolume
+    audio-control analog volume '2.5%+'
+super + control + Up
+    audio-control analog volume '2.5%+'
+
+# video
+XF86Display
+    video-toggle
+super + control + v
+    video-toggle
+XF86MonBrightnessUp
+    brightnessctl set '5%+'
+XF86MonBrightnessDown
+    brightnessctl set '5%-'
+
+# player
+XF86AudioPlay
+    player-control play toggle
+super + control + p
+    player-control play toggle
+XF86AudioNext
+    player-control play next
+super + control + >
+    player-control play next
+XF86AudioPrev
+    player-control play previous
+super + control + <
+    player-control play previous

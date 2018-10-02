@@ -74,6 +74,8 @@
 !.config/i3/**
 !.config/i3status
 !.config/i3status/**
+!.config/sxhkd
+!.config/sxhkd/**
 !.Xresources
 !.Xmodmap
 !.config/cower
