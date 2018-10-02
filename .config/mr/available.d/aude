@@ -53,5 +53,7 @@ checkout = git clone --depth 1 'https://github.com/vim-syntastic/syntastic.git' 
 checkout = git clone --depth 1 'https://github.com/sheerun/vim-polyglot.git' "$(basename "$MR_REPO")"
 [.vim/bundle/arnoldc.vim]
 checkout = git clone --depth 1 'https://github.com/aude/arnoldc.vim.git' "$(basename "$MR_REPO")"
+[.vim/bundle/vdebug]
+checkout = git clone --depth 1 'https://github.com/vim-vdebug/vdebug.git' "$(basename "$MR_REPO")"
 
 # vim: filetype=conf
