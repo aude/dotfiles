@@ -23,7 +23,7 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui=auto'
-alias sift='sift --git --color --err-skip-line-length'
+alias sift='sift --git --color --err-skip-line-length --zip --follow'
 unalias ag 2>/dev/null
 alias ag='ag --color'
 alias tree='tree -C'
