@@ -4,20 +4,35 @@ mute_pulseaudio() {
 	exec pactl -- set-sink-mute "$sink" "$1"
 }
 
+mute_alsa() {
+	exec amixer set Master "$1"
+}
+
 volume_pulseaudio() {
 	exec pactl -- set-sink-volume "$sink" "$1"
+}
+
+volume_alsa() {
+	exec amixer set Master "$1"
 }
 
 use_pulseaudio() {
 	exec pactl -- set-default-sink "$sink"
 }
 
-audiosystem=pulseaudio
+use_alsa() {
+	# TODO
+	true
+}
+
+audiosystem=alsa
 
 # set up vars
 case "$audiosystem" in
 	pulseaudio)
 		sink=$(pactl list sinks short | awk "\$2 ~ /$1/ {print \$2}")
+		;;
+	alsa)
 		;;
 esac
 
