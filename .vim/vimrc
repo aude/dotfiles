@@ -19,6 +19,9 @@ set showcmd
 set wildmenu
 set ruler
 
+set splitbelow
+set splitright
+
 set clipboard=unnamedplus
 
 " set better cache dirs
@@ -45,6 +48,10 @@ silent! colorscheme solarized
 let mapleader=","
 map j gj
 map k gk
+map <C-J> <C-W><C-J>
+map <C-K> <C-W><C-K>
+map <C-L> <C-W><C-L>
+map <C-H> <C-W><C-H>
 
 " force markdown ~https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
