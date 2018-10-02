@@ -36,6 +36,8 @@
 !bin/n
 !bin/archbootstrap
 !bin/tmp
+!bin/upper
+!bin/lower
 !bin/screen-record
 !.mozilla
 !.mozilla/firefox
