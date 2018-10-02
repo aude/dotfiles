@@ -27,8 +27,7 @@ alias sift='sift --git --color --err-skip-line-length --zip --follow'
 unalias ag 2>/dev/null
 alias ag='ag --color'
 alias tree='tree -C'
-
-alias cower='cower --rsort=votes'
+alias cower='cower --color --sort=votes'
 
 alias b=byobu
 alias o=xdg-open
