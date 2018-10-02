@@ -10,3 +10,6 @@
 [alias]
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 	delete-remote-branch = push origin --delete
+# workaround
+[http "https://gopkg.in"]
+	followRedirects = true
