@@ -61,6 +61,8 @@ autocmd BufNewFile,BufReadPost *.go set filetype=go
 autocmd BufNewFile,BufReadPost *.arnoldc set filetype=arnoldc
 " Django syntax highlighting
 autocmd BufNewFile,BufReadPost */dev/py/*/templates/*.html set filetype=htmldjango
+" force nginx.conf
+autocmd BufNewFile,BufReadPost */etc/nginx/* set filetype=nginx.conf
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
