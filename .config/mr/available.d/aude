@@ -43,9 +43,6 @@ checkout = git clone --depth 1 'https://github.com/xolox/vim-easytags.git' "$(ba
 checkout = git clone --depth 1 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
 [.vim/bundle/tabular]
 checkout = git clone --depth 1 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
-[.vim/bundle/YouCompleteMe]
-checkout = git clone --depth 1 --recursive 'https://github.com/Valloric/YouCompleteMe.git' "$(basename "$MR_REPO")"
-update = git pull --recurse-submodules "$@"
 #[.vim/bundle/vim-easymotion]
 #checkout = git clone --depth 1 'https://github.com/Lokaltog/vim-easymotion.git' "$(basename "$MR_REPO")"
 [.vim/bundle/editorconfig-vim]
