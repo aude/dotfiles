@@ -4,6 +4,9 @@ case "$1" in
 	play)
 		case "$2" in
 			toggle)
+				if pgrep mpv >/dev/null 2>&1; then
+					echo 'cycle pause' | socat - "$MPV_SOCKET"
+				fi
 				if pgrep vlc >/dev/null 2>&1; then
 					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 				fi
@@ -12,6 +15,9 @@ case "$1" in
 				fi
 				;;
 			next)
+				if pgrep mpv >/dev/null 2>&1; then
+					echo 'playlist-next' | socat - "$MPV_SOCKET"
+				fi
 				if pgrep vlc >/dev/null 2>&1; then
 					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 				fi
@@ -20,6 +26,9 @@ case "$1" in
 				fi
 				;;
 			previous)
+				if pgrep mpv >/dev/null 2>&1; then
+					echo 'playlist-prev' | socat - "$MPV_SOCKET"
+				fi
 				if pgrep vlc >/dev/null 2>&1; then
 					exec dbus-send --type=method_call --session --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 				fi

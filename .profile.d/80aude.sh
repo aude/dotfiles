@@ -4,6 +4,7 @@ export VISUAL=$EDITOR
 export PASSWORD_STORE_DIR=~/key/password-store/
 export GOPATH=~/dev/go
 export ANDROID_HOME=~/src/android-sdk-linux
+export MPV_SOCKET=$XDG_RUNTIME_DIR/mpv-socket
 
 # gpg-agent
 # use gpg-agent's SSH agent emulation

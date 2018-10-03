@@ -38,6 +38,8 @@ alias view='vim -R'
 alias vimdiff='vim -d'
 # vim is set in bin/vim
 
+alias mpv='mpv --input-ipc-server="$MPV_SOCKET"'
+
 # bashrc
 if [[ -n $BASH_VERSION ]]; then
 	# http://blog.sanctum.geek.nz/better-bash-history/
