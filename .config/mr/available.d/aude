@@ -25,6 +25,8 @@ skip = [ "$1" = "update" ] && ! hours_since "$1" 16
 
 [.vim/bundle/vim-pathogen]
 checkout = git clone --depth 1 'https://github.com/tpope/vim-pathogen.git' "$(basename "$MR_REPO")"
+[.vim/bundle/vim-sensible]
+checkout = git clone --depth 1 'https://github.com/tpope/vim-sensible.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-colors-solarized]
 checkout = git clone --depth 1 'https://github.com/altercation/vim-colors-solarized.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-commentary]
