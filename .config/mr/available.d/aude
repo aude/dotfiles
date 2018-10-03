@@ -37,6 +37,8 @@ checkout = git clone --depth 1 'https://github.com/bronson/vim-visual-star-searc
 checkout = git clone --depth 1 'https://github.com/bronson/vim-trailing-whitespace.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-unimpaired]
 checkout = git clone --depth 1 'https://github.com/tpope/vim-unimpaired.git' "$(basename "$MR_REPO")"
+[.vim/bundle/vim-sleuth]
+checkout = git clone --depth 1 'https://github.com/tpope/vim-sleuth.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-misc]
 checkout = git clone --depth 1 'https://github.com/xolox/vim-misc.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-easytags]
