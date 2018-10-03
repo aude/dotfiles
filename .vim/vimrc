@@ -66,14 +66,14 @@ autocmd BufNewFile,BufReadPost */etc/nginx/* set filetype=nginx.conf
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
-    autocmd!
-    autocmd BufReadPre  *.bin let &bin=1
-    autocmd BufReadPost *.bin if &bin | %!xxd
-    autocmd BufReadPost *.bin set ft=xxd | endif
-    autocmd BufWritePre *.bin if &bin | %!xxd -r
-    autocmd BufWritePre *.bin endif
-    autocmd BufWritePost *.bin if &bin | %!xxd
-    autocmd BufWritePost *.bin set nomod | endif
+	autocmd!
+	autocmd BufReadPre  *.bin let &bin=1
+	autocmd BufReadPost *.bin if &bin | %!xxd
+	autocmd BufReadPost *.bin set ft=xxd | endif
+	autocmd BufWritePre *.bin if &bin | %!xxd -r
+	autocmd BufWritePre *.bin endif
+	autocmd BufWritePost *.bin if &bin | %!xxd
+	autocmd BufWritePost *.bin set nomod | endif
 augroup END
 
 " commentary.vim
@@ -97,6 +97,6 @@ source $VIMRUNTIME/macros/matchit.vim
 
 " Vdebug
 if !exists('g:vdebug_options')
-    let g:vdebug_options = {}
+	let g:vdebug_options = {}
 endif
 " let g:vdebug_options.path_maps = {'/remote/path': '/local/path'}
