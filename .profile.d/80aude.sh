@@ -20,6 +20,10 @@ export SSH_AGENT=' '
 # n
 export N_PREFIX=~/src/n
 
+# maven
+# https://zeroturnaround.com/rebellabs/your-maven-build-is-slow-speed-it-up/
+export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
+
 path_dirs=( ~/.local/bin ~/bin $GOPATH/bin $N_PREFIX/bin $ANDROID_HOME/tools )
 for dir in "${path_dirs[@]}"; do
 	if [[ $PATH != *$dir* ]]; then
