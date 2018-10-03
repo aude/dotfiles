@@ -82,7 +82,7 @@ s() {
         ack --smart-case "$@"
     elif /usr/bin/which grep >/dev/null 2>&1; then
         # smart case
-        grep -R $(echo "$1" | grep -q '[[:upper:]]' || echo '-i') "$@"
+        grep -R "$(echo "$1" | grep -q '[[:upper:]]' || echo '-i')" "$@"
     else
         echo "how is this even...? no grep?!" 1>&2
         return 1
