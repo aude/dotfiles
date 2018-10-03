@@ -44,10 +44,10 @@ alias mpv='mpv --input-ipc-server="$MPV_SOCKET"'
 if [[ -n $BASH_VERSION ]]; then
 	# http://blog.sanctum.geek.nz/better-bash-history/
 	shopt -s histappend
-	HISTFILESIZE=1000000
-	HISTSIZE=1000000
-	HISTCONTROL=ignoreboth
-	HISTIGNORE='ls:bg:fg:history:..:...:la:l:ll:lh:b'
+	export HISTFILESIZE=1000000
+	export HISTSIZE=1000000
+	export HISTCONTROL=ignoreboth
+	export HISTIGNORE='ls:bg:fg:history:..:...:la:l:ll:lh:b'
 	shopt -s cmdhist
 	if [[ $PROMPT_COMMAND != *'history -a'* ]]; then
 		PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a'
