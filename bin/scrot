@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# https://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+# put screenshots in ~/Pictures
+cd "$HOME/Pictures"
+
+# reset $PATH, to exclude current directory
+# https://askubuntu.com/a/569322
+PATH=$(getconf PATH)
+
+exec scrot "$@"
