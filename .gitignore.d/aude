@@ -41,6 +41,7 @@
 !bin/lower
 !bin/screen-record
 !bin/scrot
+!bin/wifi-scan
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini

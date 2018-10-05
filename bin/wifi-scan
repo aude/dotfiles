@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+if [ "$(whoami)" != 'root' ]; then
+    echo 'run me as root' 1>&2
+    exit 1
+fi
+
+interfaces=$(iw dev | grep 'Interface' | sed 's/.*Interface[[:space:]]*//')
+case "$(echo "$interfaces" | wc -w)" in
+    0)
+        echo 'could not find any wireless interface' 1>&2; exit 1;;
+    1)
+        interface=$interfaces;;
+    *)
+        select interface in "$interfaces"; do
+            if [ "$interface" != '' ]; then
+                break
+            fi
+        done
+        ;;
+esac
+
+iw dev "$interface" scan | grep 'SSID:' | sed 's/.*SSID:[[:space:]]*//'
