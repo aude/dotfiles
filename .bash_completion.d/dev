@@ -1,0 +1,15 @@
+_dev() {
+    local cur prev words cword
+    _init_completion || return
+
+    # complete first argument
+    if [[ $cword == 1 ]]; then
+        COMPREPLY=( $(
+            cd ~/dev
+            _filedir -d
+            echo "${COMPREPLY[@]}"
+        ) )
+    fi
+} && complete -F _dev -o nospace dev
+
+# vim: filetype=sh
