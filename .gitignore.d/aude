@@ -69,6 +69,9 @@
 !.zsh_completions.d/.keepdir
 !.bashrc
 !.bash_profile
+!.bash_completion
+!.bash_completion.d
+!.bash_completion.d/.keepdir
 !.gnupg
 !.gnupg/gpg.conf
 !.gnupg/dirmngr.conf

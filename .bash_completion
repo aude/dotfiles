@@ -1,0 +1,8 @@
+# ~/.bash_completion
+if [ -d ~/.bash_completion.d ]; then
+    for completion in ~/.bash_completion.d/*; do
+        if [ -r "$completion" ]; then
+            . "$completion"
+        fi
+    done
+fi
