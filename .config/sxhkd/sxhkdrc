@@ -40,6 +40,10 @@ XF86AudioPrev
 super + control + <
     player-control play previous
 
+# image
+super + control + r
+    set-background-image
+
 # lock screen
 XF86ScreenSaver
     lock-screen
