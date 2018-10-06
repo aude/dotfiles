@@ -32,6 +32,7 @@
 !bin/player-control
 !bin/video-control
 !bin/video-toggle
+!bin/lock-screen
 !bin/term
 !bin/xedit
 !bin/n

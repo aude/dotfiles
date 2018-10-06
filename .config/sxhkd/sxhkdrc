@@ -39,3 +39,9 @@ XF86AudioPrev
     player-control play previous
 super + control + <
     player-control play previous
+
+# lock screen
+XF86ScreenSaver
+    lock-screen
+super + control + l
+    lock-screen

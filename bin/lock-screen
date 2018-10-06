@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# https://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+image_file="${XDG_CONFIG_HOME:-$HOME/.config}/lockscreen-image"
+
+if ! [ -f "$image_file" ]; then
+    echo "could not find image file: $image_file" 1>&2
+    exit 1
+fi
+
+exec i3lock -n -i "$image_file" -f
