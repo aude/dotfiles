@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+# https://wiki.archlinux.org/index.php/QEMU#Link-level_address_caveat
+
+if [ "${1-}" != '' ]; then
+    seed=$1
+else
+    read -r seed
+fi
+
+hash=$(echo "$seed" | cksum | cut -d ' ' -f 1)
+
+printf '52:54:%s%s:%s%s:%s%s:%s%s\n' $(echo "$hash" | head -c8 | sed 's/\(.\)/\1 /g')

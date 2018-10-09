@@ -44,6 +44,7 @@
 !bin/screen-record
 !bin/scrot
 !bin/wifi-scan
+!bin/qemu-mac-hasher
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
