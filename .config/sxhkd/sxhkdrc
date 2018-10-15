@@ -32,4 +32,4 @@ super + control + r
 
 # lock screen
 {XF86ScreenSaver,super + control + l}
-    lock-screen
+    screen-lock

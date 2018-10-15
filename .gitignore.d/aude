@@ -33,7 +33,7 @@
 !bin/video-control
 !bin/video-toggle
 !bin/set-background-image
-!bin/lock-screen
+!bin/screen-lock
 !bin/term
 !bin/xedit
 !bin/n
