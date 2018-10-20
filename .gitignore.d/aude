@@ -74,9 +74,9 @@
 !.bashrc
 !.bash_profile
 !.bash_completion
-!.bash_completion.d
-!.bash_completion.d/.keepdir
-!.bash_completion.d/dev
+!.local/share/bash-completion/completions
+!.local/share/bash-completion/completions/.keepdir
+!.local/share/bash-completion/completions/dev
 !.gnupg
 !.gnupg/gpg.conf
 !.gnupg/dirmngr.conf

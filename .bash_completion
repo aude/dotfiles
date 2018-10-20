@@ -1,8 +1,17 @@
-# ~/.bash_completion
-if [ -d ~/.bash_completion.d ]; then
-    for completion in ~/.bash_completion.d/*; do
-        if [ -r "$completion" ]; then
-            . "$completion"
-        fi
-    done
+# compatibility file
+
+# for systems with older bash-completion that does not automatically load
+# ~/.local/share/bash-completion/completions/*
+
+# if no dynamic user completion loading, load user completions manually
+if [[ $(declare -f _completion_loader) != *__load_completion* ]]; then
+    completions_dir=~/.local/share/bash-completion/completions
+    if [ -d "$completions_dir" ]; then
+        for completion in "$completions_dir"/*; do
+            if [ -r "$completion" ]; then
+                . "$completion"
+            fi
+        done
+    fi
+    unset completions_dir completion
 fi
