@@ -45,6 +45,7 @@
 !bin/scrot
 !bin/wifi-scan
 !bin/qemu-mac-hasher
+!bin/k
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
@@ -80,6 +81,7 @@
 !.local/share/bash-completion/completions
 !.local/share/bash-completion/completions/.keepdir
 !.local/share/bash-completion/completions/dev
+!.local/share/bash-completion/completions/k
 !.gnupg
 !.gnupg/gpg.conf
 !.gnupg/dirmngr.conf

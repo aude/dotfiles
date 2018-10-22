@@ -1,0 +1,28 @@
+# use the completion of the following command
+cmd_upstream='kubectl'
+
+# get the name of this command
+cmd_current=${BASH_SOURCE[0]##*/}
+
+# load upstream completion
+_completion_loader "$cmd_upstream"
+
+# get upstream completion specification
+completion_spec=$(complete -p "$cmd_upstream")
+
+# use upstream specification for our own purpose
+#
+# for example, if this is upstream:
+#
+#     complete -o default -F _pacman pacman
+#
+# we want to turn that into this:
+#
+#     complete -o default -F _pacman pacmatic
+#
+eval "${completion_spec/ $cmd_upstream/ $cmd_current}"
+
+# clean up
+unset cmd_upstream cmd_current completion_spec
+
+# ex: filetype=sh
