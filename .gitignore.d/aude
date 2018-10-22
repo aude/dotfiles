@@ -74,6 +74,9 @@
 !.bashrc
 !.bash_profile
 !.bash_completion
+!.local
+!.local/share
+!.local/share/bash-completion
 !.local/share/bash-completion/completions
 !.local/share/bash-completion/completions/.keepdir
 !.local/share/bash-completion/completions/dev
