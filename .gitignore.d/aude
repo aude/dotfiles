@@ -48,6 +48,7 @@
 !bin/wifi-scan
 !bin/qemu-mac-hasher
 !bin/k
+!bin/tf
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
@@ -84,6 +85,7 @@
 !.local/share/bash-completion/completions/.keepdir
 !.local/share/bash-completion/completions/dev
 !.local/share/bash-completion/completions/k
+!.local/share/bash-completion/completions/tf
 !.gnupg
 !.gnupg/gpg.conf
 !.gnupg/dirmngr.conf
