@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+get_file_type() {
+    file_extension="${1##*.}"
+
+    if [[ $file_extension == 'iso' ]]; then
+        echo 'iso'
+        return 0
+    fi
+
+    if [[ $file_extension == 'img' || $file_extension == 'raw' ]]; then
+        echo 'img'
+        return 0
+    fi
+
+    if [[ $file_extension == 'qcow2' ]]; then
+        echo 'qcow2'
+        return 0
+    fi
+
+    echo 'could not determine file type' 1>&2
+    return 1
+}
+
+get_boot_type() {
+    file_output=$(file "$1")
+
+    if [[ $file_output == *'DOS/MBR boot sector;'* ]]; then
+        echo 'uefi'
+        return 0
+    fi
+
+    if [[ $file_output == *'DOS/MBR boot sector'* ]]; then
+        echo 'bios'
+        return 0
+    fi
+
+    if [[ $file_output == *'QEMU QCOW Image'* ]]; then
+        # this is wrong
+        echo 'bios'
+        return 0
+    fi
+
+    echo 'could not determine boot type' 1>&2
+    return 1
+}
+
+main() {
+    file="$1"
+    name="$(basename "$file")"
+
+    args=()
+
+    # name
+    args+=("-name" "$name")
+
+    # KVM
+    args+=("-enable-kvm")
+
+    # memory
+    args+=("-m" "2G")
+
+    # boot
+    case "$(get_boot_type "$file")" in
+        'uefi')
+            args+=("-drive" "file=/usr/share/ovmf/x64/OVMF_CODE.fd,format=raw,if=pflash,readonly")
+            ;;
+        'bios')
+            ;;
+        *)
+            echo 'did nothing with this boot type' 1>&2
+            ;;
+    esac
+
+    # media
+    case "$(get_file_type "$file")" in
+        'iso')
+            args+=("-drive" "file=$file,media=cdrom")
+            ;;
+        'img')
+            args+=("-drive" "file=$file,format=raw,if=virtio")
+            ;;
+        'qcow2')
+            args+=("-drive" "file=$file,if=virtio")
+            ;;
+        *)
+            echo 'did not attach any media' 1>&2
+            ;;
+    esac
+
+    if [ "${PERSISTENT-}" = '' ]; then
+        args+=("-snapshot")
+    fi
+
+    # network
+    args+=("-netdev" "bridge,id=hn0,br=$QEMUTMP_BR")
+    args+=("-device" "virtio-net,netdev=hn0,mac=$(qemu-mac-hasher "$name")")
+
+    set -x
+    exec qemu-system-x86_64 "${args[@]}"
+}
+
+main "$@"

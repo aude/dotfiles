@@ -47,6 +47,7 @@
 !bin/scrot
 !bin/wifi-scan
 !bin/qemu-mac-hasher
+!bin/qemu-tmp
 !bin/k
 !bin/tf
 !.mozilla
