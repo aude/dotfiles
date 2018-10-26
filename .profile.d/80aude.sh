@@ -21,6 +21,10 @@ export SSH_AGENT=' '
 # configure libvirt to use system session by default
 export LIBVIRT_DEFAULT_URI='qemu:///system'
 
+# sway
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=dvorak
+
 # btlock
 export BTLOCK_COMMAND_LOCK='screen-lock'
 export BTLOCK_COMMAND_UNLOCK='screen-unlock'
