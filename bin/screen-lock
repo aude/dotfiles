@@ -10,8 +10,16 @@ if ! [ -f "$image_file" ]; then
     exit 1
 fi
 
+# X
 if pgrep -x 'dwm|i3' >/dev/null 2>&1; then
     if ! pgrep -x 'i3lock' >/dev/null 2>&1; then
         exec i3lock -n -i "$image_file" -f
+    fi
+fi
+
+# Wayland
+if pgrep -x 'sway' >/dev/null 2>&1; then
+    if ! pgrep -x 'swaylock' >/dev/null 2>&1; then
+        exec swaylock -i "$image_file"
     fi
 fi
