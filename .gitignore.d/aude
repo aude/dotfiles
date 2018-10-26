@@ -38,6 +38,7 @@
 !bin/xedit
 !bin/n
 !bin/archbootstrap
+!bin/bash-alias-completion
 !bin/tmp
 !bin/upper
 !bin/lower
