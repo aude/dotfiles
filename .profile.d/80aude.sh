@@ -17,6 +17,10 @@ fi
 # so RedHat's xinitrc-common does not launch a new ssh-agent
 export SSH_AGENT=' '
 
+# btlock
+export BTLOCK_COMMAND_LOCK='screen-lock'
+export BTLOCK_COMMAND_UNLOCK='screen-unlock'
+
 # n
 export N_PREFIX="$HOME/src/n"
 
