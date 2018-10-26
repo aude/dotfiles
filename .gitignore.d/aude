@@ -34,6 +34,7 @@
 !bin/video-toggle
 !bin/set-background-image
 !bin/screen-lock
+!bin/screen-unlock
 !bin/term
 !bin/xedit
 !bin/n
