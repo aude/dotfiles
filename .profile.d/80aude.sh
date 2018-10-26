@@ -17,6 +17,10 @@ fi
 # so RedHat's xinitrc-common does not launch a new ssh-agent
 export SSH_AGENT=' '
 
+# libvirt
+# configure libvirt to use system session by default
+export LIBVIRT_DEFAULT_URI='qemu:///system'
+
 # btlock
 export BTLOCK_COMMAND_LOCK='screen-lock'
 export BTLOCK_COMMAND_UNLOCK='screen-unlock'
