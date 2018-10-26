@@ -36,14 +36,17 @@ set $down j
 set $left h
 set $right l
 
+# set $term term
+set $term st
+
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-launch "urxvt -cd '$(xcwd)'" -4 'firefox'
+bindsym $mod+Return exec i3-launch '$term' -4 'firefox'
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -100,7 +103,7 @@ bindsym $mod+Mod1+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -134,11 +137,11 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
+# # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -207,8 +210,8 @@ for_window [class="^Firefox$"] focus child, layout tabbed
 for_window [class="^chromium-browser$"] focus child, layout tabbed
 for_window [class="^Pidgin$"] focus child, layout tabbed
 
-# background image
-exec --no-startup-id feh --bg-fill --no-fehbg ~/.config/background-image
+# # background image
+# exec --no-startup-id feh --bg-fill --no-fehbg ~/.config/background-image
 
 # autostart
 exec --no-startup-id dex --autostart --environment i3
