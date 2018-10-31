@@ -13,7 +13,7 @@ fi
 # X
 if pgrep -x 'dwm|i3' >/dev/null 2>&1; then
     if ! pgrep -x 'i3lock' >/dev/null 2>&1; then
-        exec i3lock -n -i "$image_file" -f
+        exec i3lock -n -i "$image_file" -c 000000 -f
     fi
 fi
 
