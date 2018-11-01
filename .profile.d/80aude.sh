@@ -4,6 +4,7 @@ export VISUAL="$EDITOR"
 export PASSWORD_STORE_DIR="$HOME/key/password-store"
 export GOPATH="$HOME/dev/go"
 export ANDROID_HOME="$HOME/src/android-sdk-linux"
+export FLUTTER_HOME="$HOME/src/flutter"
 export MPV_SOCKET="$XDG_RUNTIME_DIR/mpv-socket"
 
 # gpg-agent
@@ -64,7 +65,8 @@ path_prepend "$HOME/bin"
 
 path_append "$GOPATH/bin"
 path_append "$N_PREFIX/bin"
-path_append "$ANDROID_HOME"/tools
+path_append "$ANDROID_HOME"/{tools,platform-tools,emulator}
+path_append "$FLUTTER_HOME/bin"
 
 ## -- source --
 #source_these=()
