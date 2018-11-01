@@ -50,6 +50,7 @@
 !bin/qemu-tmp
 !bin/k
 !bin/tf
+!bin/agit
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
@@ -87,6 +88,7 @@
 !.local/share/bash-completion/completions/dev
 !.local/share/bash-completion/completions/k
 !.local/share/bash-completion/completions/tf
+!.local/share/bash-completion/completions/agit
 !.gnupg
 !.gnupg/gpg.conf
 !.gnupg/dirmngr.conf

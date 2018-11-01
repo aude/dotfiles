@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec git \
+    -c user.name='Asbjørn Apeland' \
+    -c user.email='aude@users.noreply.github.com' \
+    -c user.signingKey='7C718B3C995CB28D' \
+    "$@"
