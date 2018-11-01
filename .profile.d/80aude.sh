@@ -40,13 +40,31 @@ export N_PREFIX="$HOME/src/n"
 # https://zeroturnaround.com/rebellabs/your-maven-build-is-slow-speed-it-up/
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 
-path_dirs=( ~/.local/bin ~/bin $GOPATH/bin $N_PREFIX/bin $ANDROID_HOME/tools )
-for dir in "${path_dirs[@]}"; do
-    if [[ $PATH != *$dir* ]]; then
-        export PATH=$dir:$PATH
+path_has() {
+    if [[ $PATH = *$1* ]]; then
+        return 0
     fi
-done
-unset path_dirs dir
+    return 1
+}
+
+path_prepend() {
+    if [ -d "$1" ] && ! path_has "$1"; then
+        export PATH="$1:$PATH"
+    fi
+}
+
+path_append() {
+    if [ -d "$1" ] && ! path_has "$1"; then
+        export PATH="$PATH:$1"
+    fi
+}
+
+path_prepend "$HOME/.local/bin"
+path_prepend "$HOME/bin"
+
+path_append "$GOPATH/bin"
+path_append "$N_PREFIX/bin"
+path_append "$ANDROID_HOME"/tools
 
 ## -- source --
 #source_these=()
