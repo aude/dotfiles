@@ -17,6 +17,10 @@ fi
 # so RedHat's xinitrc-common does not launch a new ssh-agent
 export SSH_AGENT=' '
 
+# java
+# configure java for use with minimal X window managers
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # libvirt
 # configure libvirt to use system session by default
 export LIBVIRT_DEFAULT_URI='qemu:///system'
