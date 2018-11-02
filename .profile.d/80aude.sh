@@ -67,7 +67,7 @@ path_add 'before' "$HOME/bin"
 
 path_add 'after' "$GOPATH/bin"
 path_add 'after' "$N_PREFIX/bin"
-path_add 'after' "$ANDROID_HOME"/{tools,platform-tools,emulator}
+path_add 'after' "$ANDROID_HOME"/{tools{,/bin},platform-tools,emulator}
 path_add 'after' "$FLUTTER_HOME/bin"
 
 ## -- source --
