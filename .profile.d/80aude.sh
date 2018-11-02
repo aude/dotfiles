@@ -48,25 +48,27 @@ path_has() {
     return 1
 }
 
-path_prepend() {
-    if [ -d "$1" ] && ! path_has "$1"; then
-        export PATH="$1:$PATH"
-    fi
+path_add() {
+    local position=$1 && shift
+    local path
+    for path in "$@"; do
+        if [ -d "$path" ] && ! path_has "$path"; then
+            case "$position" in
+                before) export PATH="$path:$PATH";;
+                after) export PATH="$PATH:$path";;
+                *) echo 'usage: path_add (before|after) <path...>' 1>&2; return 1;;
+            esac
+        fi
+    done
 }
 
-path_append() {
-    if [ -d "$1" ] && ! path_has "$1"; then
-        export PATH="$PATH:$1"
-    fi
-}
+path_add 'before' "$HOME/.local/bin"
+path_add 'before' "$HOME/bin"
 
-path_prepend "$HOME/.local/bin"
-path_prepend "$HOME/bin"
-
-path_append "$GOPATH/bin"
-path_append "$N_PREFIX/bin"
-path_append "$ANDROID_HOME"/{tools,platform-tools,emulator}
-path_append "$FLUTTER_HOME/bin"
+path_add 'after' "$GOPATH/bin"
+path_add 'after' "$N_PREFIX/bin"
+path_add 'after' "$ANDROID_HOME"/{tools,platform-tools,emulator}
+path_add 'after' "$FLUTTER_HOME/bin"
 
 ## -- source --
 #source_these=()
