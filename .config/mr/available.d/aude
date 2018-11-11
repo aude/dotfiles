@@ -44,7 +44,7 @@ checkout = git clone --depth 1 'https://github.com/tpope/vim-sleuth.git' "$(base
 [.vim/bundle/vim-misc]
 checkout = git clone --depth 1 'https://github.com/xolox/vim-misc.git' "$(basename "$MR_REPO")"
 [.vim/bundle/vim-easytags]
-checkout = git clone --depth 1 'https://github.com/xolox/vim-easytags.git' "$(basename "$MR_REPO")"
+checkout = git clone --depth 1 --branch 'fix-universal-detection' 'https://github.com/Wraul/vim-easytags.git' "$(basename "$MR_REPO")"
 [.vim/bundle/xmledit]
 checkout = git clone --depth 1 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
 [.vim/bundle/tabular]
