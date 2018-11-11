@@ -1,6 +1,9 @@
 [push]
 	default = simple
 
+[pull]
+	ff = only
+
 # https://www.lutro.me/posts/push-to-ssh-pull-from-http-s
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
