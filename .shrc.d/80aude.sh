@@ -23,7 +23,8 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui=auto'
-alias sift='sift --git --color --err-skip-line-length --zip --follow'
+alias sift='sift --git --err-skip-line-length --zip --follow'
+alias rg='rg --no-heading --no-line-number --hidden --search-zip --follow'
 unalias ag 2>/dev/null
 alias ag='ag --color'
 alias tree='tree -C'
@@ -74,7 +75,9 @@ dev() {
 # (( code search ))
 s() {
     # check for actual binaries, aliases and stuff won't work without
-    if /usr/bin/which sift >/dev/null 2>&1; then
+    if /usr/bin/which rg >/dev/null 2>&1; then
+        rg --smart-case "$@"
+    elif /usr/bin/which sift >/dev/null 2>&1; then
         sift --smart-case "$@"
     elif /usr/bin/which ag >/dev/null 2>&1; then
         ag "$@"
@@ -93,18 +96,18 @@ s() {
 # (( file search ))
 # bind ctrl-f to fuzzy-find a file and append it to the command line
 function print_files() {
-    # prefer 'sift' command
-    if command -v sift >/dev/null 2>&1; then
-        sift --git --targets
-    # fall back to 'find' command
+    # prefer `rg`
+    if /usr/bin/which rg >/dev/null 2>&1; then
+        rg --files --no-ignore --glob '!.git'
+    # fall back to `find`
     else
         # skip .git directories
         find . -name .git -prune -o -type f -print
     fi
 }
 function choose() {
-    # prefer 'fzf' command
-    if command -v fzf >/dev/null 2>&1; then
+    # prefer `fzf`
+    if /usr/bin/which fzf >/dev/null 2>&1; then
         fzf --cycle
     # fail if it's not here
     else
@@ -114,7 +117,7 @@ function choose() {
 }
 # command to select a file
 function select_file() {
-    print_files | choose
+    print_files 2>/dev/null | choose
 }
 
 # if BASH
