@@ -4,11 +4,16 @@ _dev() {
 
     # complete first argument
     if [[ $cword == 1 ]]; then
-        COMPREPLY=( $(
-            cd ~/dev
-            _filedir -d
-            echo "${COMPREPLY[@]}"
-        ) )
+        local wd=$PWD
+        cd ~/dev
+        _filedir -d
+        cd "$wd"
+
+        # add trailing space
+        # upstream bash-completion also does this, see _cd()
+        if [[ ${#COMPREPLY[@]} -eq 1 ]]; then
+            COMPREPLY[0]="${COMPREPLY[0]}/"
+        fi
     fi
 } && complete -F _dev -o nospace dev
 
