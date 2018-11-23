@@ -23,7 +23,6 @@ alias lh='ll --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui=auto'
-alias sift='sift --git --err-skip-line-length --zip --follow'
 alias rg='rg --no-heading --no-line-number --hidden --search-zip --follow'
 unalias ag 2>/dev/null
 alias ag='ag --color'
@@ -77,8 +76,6 @@ s() {
     # check for actual binaries, aliases and stuff won't work without
     if /usr/bin/which rg >/dev/null 2>&1; then
         rg --smart-case "$@"
-    elif /usr/bin/which sift >/dev/null 2>&1; then
-        sift --smart-case "$@"
     elif /usr/bin/which ag >/dev/null 2>&1; then
         ag "$@"
     elif /usr/bin/which ack >/dev/null 2>&1; then
