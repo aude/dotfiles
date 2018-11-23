@@ -14,9 +14,6 @@ checkout = git clone --depth 1 'https://github.com/tj/n.git' "$(basename "$MR_RE
 checkout = git clone --depth 1 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
 [src/bash-alias-completion]
 checkout = git clone --depth 1 'https://github.com/aude/bash-alias-completion.git' "$(basename "$MR_REPO")"
-[dev/go/src/github.com/junegunn/fzf]
-checkout = go get github.com/junegunn/fzf
-update = go get -u github.com/junegunn/fzf
 
 # vim
 [DEFAULT]
