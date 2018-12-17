@@ -103,12 +103,13 @@ function print_files() {
     fi
 }
 function choose() {
-    # prefer `fzf`
-    if /usr/bin/which fzf >/dev/null 2>&1; then
+    # check for actual binaries, aliases and stuff won't work without
+    if /usr/bin/which fzy >/dev/null 2>&1; then
+        fzy
+    elif /usr/bin/which fzf >/dev/null 2>&1; then
         fzf --cycle
-    # fail if it's not here
     else
-        echo 'install "fzf" to use this functionality' >&2
+        echo 'install "fzy" or "fzf" to use this functionality' >&2
         return 1
     fi
 }
