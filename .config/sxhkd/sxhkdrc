@@ -29,6 +29,8 @@ XF86MonBrightnessDown
 # image
 super + control + r
     set-background-image
+super + s
+    scrot
 
 # lock screen
 {XF86ScreenSaver,super + control + l}
