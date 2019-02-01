@@ -106,7 +106,7 @@ function print_files() {
 function choose() {
     # check for actual binaries, aliases and stuff won't work without
     if /usr/bin/which fzy >/dev/null 2>&1; then
-        fzy
+        fzy | exists | is_not_empty
     elif /usr/bin/which fzf >/dev/null 2>&1; then
         fzf --cycle
     else
@@ -117,6 +117,24 @@ function choose() {
 # command to select a file
 function select_file() {
     print_files 2>/dev/null | choose
+}
+# helper functions
+function exists() {
+    while read -r file; do
+        if [ -e "$file" ]; then
+            printf '%s\n' "$file"
+        fi
+    done
+}
+function is_not_empty() {
+    empty='true'
+    while read -r line; do
+        printf '%s\n' "$line"
+        empty='false'
+    done
+    if "$empty"; then
+        return 1
+    fi
 }
 
 # if BASH
