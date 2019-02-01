@@ -85,6 +85,7 @@ autocmd BufNewFile,BufReadPost *.phtml setlocal commentstring=<?php\ /*%s*/\ ?>
 
 " easytags.vim
 let g:easytags_file = '~/.vim/tags'
+let g:easytags_async = 1
 
 " Syntastic
 " syntax check on file open
