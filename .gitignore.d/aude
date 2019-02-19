@@ -50,6 +50,7 @@
 !bin/qemu-tmp
 !bin/k
 !bin/tf
+!bin/.net
 !bin/agit
 !.mozilla
 !.mozilla/firefox
@@ -88,6 +89,7 @@
 !.local/share/bash-completion/completions/dev
 !.local/share/bash-completion/completions/k
 !.local/share/bash-completion/completions/tf
+!.local/share/bash-completion/completions/.net
 !.local/share/bash-completion/completions/agit
 !.gnupg
 !.gnupg/gpg.conf
