@@ -41,6 +41,9 @@ export N_PREFIX="$HOME/src/n"
 # https://zeroturnaround.com/rebellabs/your-maven-build-is-slow-speed-it-up/
 export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 
+# .NET Core
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 path_has() {
     if [[ $PATH = *$1* ]]; then
         return 0
@@ -66,9 +69,10 @@ path_add 'before' "$HOME/.local/bin"
 path_add 'before' "$HOME/bin"
 
 path_add 'after' "$GOPATH/bin"
-path_add 'after' "$N_PREFIX/bin"
+path_add 'after' "$HOME/.dotnet/tools"
 path_add 'after' "$ANDROID_HOME"/{tools{,/bin},platform-tools,emulator}
 path_add 'after' "$FLUTTER_HOME/bin"
+path_add 'after' "$N_PREFIX/bin"
 
 ## -- source --
 #source_these=()
