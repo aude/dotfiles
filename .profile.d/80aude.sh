@@ -21,6 +21,8 @@ export SSH_AGENT=' '
 # java
 # configure java for use with minimal X window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
+# better font rendering
+export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dawt.useSystemAAFontSettings=gasp"
 
 # libvirt
 # configure libvirt to use system session by default
