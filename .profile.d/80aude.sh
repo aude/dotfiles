@@ -23,6 +23,8 @@ export SSH_AGENT=' '
 export _JAVA_AWT_WM_NONREPARENTING=1
 # better font rendering
 export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dawt.useSystemAAFontSettings=gasp"
+# better 2D performance
+export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dsun.java2d.opengl=true"
 
 # libvirt
 # configure libvirt to use system session by default
