@@ -48,10 +48,6 @@ export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 # .NET Core
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# task
-export TASKRC="${XDG_CONFIG_HOME:-$HOME/.config}/task/taskrc"
-export TASKDATA="${XDG_DATA_HOME:-$HOME/.local/share}/task"
-
 path_has() {
     if [[ $PATH = *$1* ]]; then
         return 0
