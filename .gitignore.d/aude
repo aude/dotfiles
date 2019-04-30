@@ -59,6 +59,8 @@
 !.mozilla/firefox/waitwhat.default/user.js
 !.mozilla/firefox/waitwhat.default/searchplugins
 !.mozilla/firefox/waitwhat.default/searchplugins/*.xml
+!.config/vis
+!.config/vis/**
 !.vim
 !.vim/backup
 !.vim/backup/.keepdir
