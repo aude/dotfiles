@@ -105,3 +105,9 @@
 !.Xmodmap
 !.config/cower
 !.config/cower/**
+!.taskrc
+!.config/task
+!.config/task/**
+!.task
+!.local/share/task
+!.local/share/task/.keepdir
