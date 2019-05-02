@@ -52,6 +52,7 @@
 !bin/tf
 !bin/.net
 !bin/agit
+!bin/ff
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
