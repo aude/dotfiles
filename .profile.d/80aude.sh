@@ -48,6 +48,9 @@ export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'
 # .NET Core
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+# PowerShell Core
+export POWERSHELL_TELEMETRY_OPTOUT=1
+
 path_has() {
     if [[ $PATH = *$1* ]]; then
         return 0
