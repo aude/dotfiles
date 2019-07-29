@@ -1,3 +1,7 @@
+[user]
+	name = Asbjørn Apeland
+	email = aude@users.noreply.github.com
+	signingKey = 7C718B3C995CB28D
 [push]
 	default = simple
 
