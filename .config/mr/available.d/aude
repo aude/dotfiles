@@ -16,98 +16,98 @@ lib =
 	}
 
 [${XDG_CONFIG_HOME:-$HOME/.config}/vcsh/repo.d/aude.git]
-checkout = vcsh clone 'https://github.com/aude/dotfiles.git' "$(basename "$MR_REPO" '.git')"
+checkout = vcsh clone "$@" 'https://github.com/aude/dotfiles.git' "$(basename "$MR_REPO" '.git')"
 
 [src/system-conf]
-checkout = git clone 'https://github.com/aude/system-conf.git' "$(basename "$MR_REPO")"
+checkout = git clone "$@" 'https://github.com/aude/system-conf.git' "$(basename "$MR_REPO")"
 
 [src/zsh-completions]
-checkout = git_checkout_shallow 'https://github.com/zsh-users/zsh-completions.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
+checkout = git_checkout_shallow "$@" 'https://github.com/zsh-users/zsh-completions.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
 [src/z]
-checkout = git_checkout_shallow 'https://github.com/rupa/z.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
+checkout = git_checkout_shallow "$@" 'https://github.com/rupa/z.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
 [src/n]
-checkout = git_checkout_shallow 'https://github.com/tj/n.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
+checkout = git_checkout_shallow "$@" 'https://github.com/tj/n.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
 [src/archbootstrap]
-checkout = git_checkout_shallow 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
+checkout = git_checkout_shallow "$@" 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
 [src/bash-alias-completion]
-checkout = git_checkout_shallow 'https://github.com/aude/bash-alias-completion.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
+checkout = git_checkout_shallow "$@" 'https://github.com/aude/bash-alias-completion.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
 
 [.vim/bundle/vim-pathogen]
-checkout = git_checkout_shallow 'https://github.com/tpope/vim-pathogen.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/tpope/vim-pathogen.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-sensible]
-checkout = git_checkout_shallow 'https://github.com/tpope/vim-sensible.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/tpope/vim-sensible.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-colors-solarized]
-checkout = git_checkout_shallow 'https://github.com/altercation/vim-colors-solarized.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/altercation/vim-colors-solarized.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-commentary]
-checkout = git_checkout_shallow 'https://github.com/tpope/vim-commentary.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/tpope/vim-commentary.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-visual-star-search]
-checkout = git_checkout_shallow 'https://github.com/bronson/vim-visual-star-search.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/bronson/vim-visual-star-search.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-trailing-whitespace]
-checkout = git_checkout_shallow 'https://github.com/bronson/vim-trailing-whitespace.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/bronson/vim-trailing-whitespace.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-unimpaired]
-checkout = git_checkout_shallow 'https://github.com/tpope/vim-unimpaired.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/tpope/vim-unimpaired.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-sleuth]
-checkout = git_checkout_shallow 'https://github.com/tpope/vim-sleuth.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/tpope/vim-sleuth.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-misc]
-checkout = git_checkout_shallow 'https://github.com/xolox/vim-misc.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/xolox/vim-misc.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-easytags]
-checkout = git_checkout_shallow --branch='fix-universal-detection' 'https://github.com/Wraul/vim-easytags.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" --branch='fix-universal-detection' 'https://github.com/Wraul/vim-easytags.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/xmledit]
-checkout = git_checkout_shallow 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/sukima/xmledit.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/tabular]
-checkout = git_checkout_shallow 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/godlygeek/tabular.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 #[.vim/bundle/vim-easymotion]
 #checkout = git_checkout_shallow 'https://github.com/Lokaltog/vim-easymotion.git' "$(basename "$MR_REPO")"
 #git_update = git_update_shallow
 #skip = skip_vim
 [.vim/bundle/editorconfig-vim]
-checkout = git_checkout_shallow 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/syntastic]
-checkout = git_checkout_shallow 'https://github.com/vim-syntastic/syntastic.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/vim-syntastic/syntastic.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vim-polyglot]
-checkout = git_checkout_shallow 'https://github.com/sheerun/vim-polyglot.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/sheerun/vim-polyglot.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/arnoldc.vim]
-checkout = git_checkout_shallow 'https://github.com/aude/arnoldc.vim.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/aude/arnoldc.vim.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 [.vim/bundle/vdebug]
-checkout = git_checkout_shallow 'https://github.com/vim-vdebug/vdebug.git' "$(basename "$MR_REPO")"
-git_update = git_update_shallow
-skip = skip_vim
+checkout = git_checkout_shallow "$@" 'https://github.com/vim-vdebug/vdebug.git' "$(basename "$MR_REPO")"
+git_update = git_update_shallow "$@"
+skip = skip_vim "$@"
 
 # vim: filetype=conf
