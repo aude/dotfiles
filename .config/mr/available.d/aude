@@ -4,7 +4,12 @@ lib =
 		git clone --depth=1 "$@"
 	}
 	git_update_shallow() {
-		git pull --depth=1 "$@"
+		git fetch --depth=1 "$@"
+		if ! [ "$(git rev-parse HEAD)" = "$(git rev-parse @{u})" ]; then
+			git reset --hard @{u} "$@"
+		else
+			echo 'Already up to date.'
+		fi
 	}
 	skip_vim() {
 		[ -d "$MR_REPO" ] && [ "$1" = "update" ] && ! hours_since "$1" 16
