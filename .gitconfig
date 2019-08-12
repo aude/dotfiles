@@ -4,6 +4,7 @@
 	signingKey = 7C718B3C995CB28D
 [push]
 	default = simple
+	followTags = true
 
 [pull]
 	ff = only
