@@ -73,6 +73,19 @@ cl() {
 dev() {
 	cd ~/dev/"$1"
 }
+# python venv activation
+activate() {
+    for venv in '.venv' 'venv'; do
+        if [[ -f $venv/bin/activate ]]; then
+            source "$venv/bin/activate"
+            unset venv
+            return
+        fi
+    done
+
+    echo 'did not find any venv' 1>&2
+    return 1
+}
 # (( code search ))
 s() {
     # check for actual binaries, aliases and stuff won't work without
