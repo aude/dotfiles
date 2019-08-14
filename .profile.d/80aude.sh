@@ -8,6 +8,9 @@ export FLUTTER_HOME="$HOME/src/flutter"
 export N_PREFIX="$HOME/src/n"
 export MPV_SOCKET="$XDG_RUNTIME_DIR/mpv-socket"
 
+# sort case sensitively
+export LC_COLLATE='C'
+
 # gpg-agent
 # use gpg-agent's SSH agent emulation
 unset SSH_AGENT_PID
