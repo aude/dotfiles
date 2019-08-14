@@ -5,6 +5,7 @@ export PASSWORD_STORE_DIR="$HOME/key/password-store"
 export GOPATH="$HOME/dev/go"
 export ANDROID_HOME="$HOME/src/android-sdk-linux"
 export FLUTTER_HOME="$HOME/src/flutter"
+export N_PREFIX="$HOME/src/n"
 export MPV_SOCKET="$XDG_RUNTIME_DIR/mpv-socket"
 
 # gpg-agent
@@ -37,9 +38,6 @@ export XKB_DEFAULT_VARIANT=dvorak
 # btlock
 export BTLOCK_COMMAND_LOCK='screen-lock'
 export BTLOCK_COMMAND_UNLOCK='screen-unlock'
-
-# n
-export N_PREFIX="$HOME/src/n"
 
 # maven
 # https://zeroturnaround.com/rebellabs/your-maven-build-is-slow-speed-it-up/
