@@ -48,6 +48,7 @@
 !bin/wifi-scan
 !bin/qemu-mac-hasher
 !bin/qemu-tmp
+!bin/dc
 !bin/k
 !bin/tf
 !bin/.net
@@ -91,6 +92,7 @@
 !.local/share/bash-completion/completions
 !.local/share/bash-completion/completions/.keepdir
 !.local/share/bash-completion/completions/dev
+!.local/share/bash-completion/completions/dc
 !.local/share/bash-completion/completions/k
 !.local/share/bash-completion/completions/tf
 !.local/share/bash-completion/completions/.net
