@@ -36,3 +36,6 @@ case "$switch_to" in
 		audio-control analog use
 		;;
 esac
+
+# scale background image for active output
+set-background-image
