@@ -88,15 +88,10 @@ autocmd FileType cs setlocal commentstring=//\ %s
 let g:easytags_file = '~/.vim/tags'
 let g:easytags_async = 1
 
-" Syntastic
-" syntax check on file open
-let g:syntastic_check_on_open = 1
-" don't syntax check right before vim quits
-let g:syntastic_check_on_wq = 0
-" don't use phpcs opportunistically
-let g:syntastic_php_checkers = ['php', 'phpstan']
-" `shellcheck -x`
-let g:syntastic_sh_shellcheck_args = '-x'
+" ALE
+" only run on file save and file open
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 
 " matchit.vim
 source $VIMRUNTIME/macros/matchit.vim

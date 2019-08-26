@@ -93,8 +93,8 @@ skip = skip_vim "$@"
 checkout = git_checkout_shallow "$@" 'https://github.com/editorconfig/editorconfig-vim.git' "$(basename "$MR_REPO")"
 git_update = git_update_shallow "$@"
 skip = skip_vim "$@"
-[.vim/bundle/syntastic]
-checkout = git_checkout_shallow "$@" 'https://github.com/vim-syntastic/syntastic.git' "$(basename "$MR_REPO")"
+[.vim/bundle/ale]
+checkout = git_checkout_shallow "$@" 'https://github.com/dense-analysis/ale.git' "$(basename "$MR_REPO")"
 git_update = git_update_shallow "$@"
 skip = skip_vim "$@"
 [.vim/bundle/vim-polyglot]
