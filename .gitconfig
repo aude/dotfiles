@@ -2,6 +2,7 @@
 	name = Asbjørn Apeland
 	email = aude@users.noreply.github.com
 	signingKey = 7C718B3C995CB28D
+
 [push]
 	default = simple
 	followTags = true
@@ -9,17 +10,17 @@
 [pull]
 	ff = only
 
-# https://www.lutro.me/posts/push-to-ssh-pull-from-http-s
-[url "git@github.com:"]
-	pushInsteadOf = https://github.com/
-
 [alias]
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 	delete-remote-branch = push origin --delete
+
+# https://www.lutro.me/posts/push-to-ssh-pull-from-http-s
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
 
 # workaround
 [http "https://gopkg.in"]
 	followRedirects = true
 
 [include]
-	path = ~/.gitconfig.local
+	path = .gitconfig.local
