@@ -75,16 +75,31 @@ dev() {
 }
 # python venv activation
 activate() {
-    for venv in '.venv' 'venv'; do
-        if [[ -f $venv/bin/activate ]]; then
-            source "$venv/bin/activate"
-            unset venv
-            return
-        fi
-    done
+	local dir base venv
 
-    echo 'did not find any venv' 1>&2
-    return 1
+	dir="$PWD"
+	while :; do
+		for base in '.venv' 'venv' 'env'; do
+			if [[ -f $dir/$base/bin/activate ]]; then
+				venv="$dir/$base"
+				break 2
+			fi
+		done
+
+		if [[ $dir/ == '/' ]]; then
+			break
+		fi
+
+		dir=${dir%/*}
+	done
+
+	if [[ -n $venv ]]; then
+		source "$venv/bin/activate"
+		return 0
+	else
+		echo 'did not find any venv' 1>&2
+		return 1
+	fi
 }
 # (( code search ))
 s() {
@@ -225,6 +240,9 @@ else
 fi
 
 # -- cmd --
+# automatically activate python venv if present
+PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''command -v deactivate >/dev/null 2>&1 && deactivate; activate >/dev/null 2>&1 || true'
+
 # do not show the "Done" message, so run all in subshell
 #(
 #	(
