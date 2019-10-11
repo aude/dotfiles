@@ -63,12 +63,7 @@ fi
 
 # -- function --
 cl() {
-	if [[ $@ ]]; then
-		cd "$@"
-	else
-		cd
-	fi
-	l
+	cd ${*+"$@"} && l
 }
 dev() {
 	cd ~/dev/"$1"
