@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# https://www.davidpashley.com/articles/writing-robust-shell-scripts/
+set -eu
+
+# be verbose
+set -x
+
+OUTDIR=$(pwd)
+
+cd "$(mktemp -d)"
+
+trap "rm -rf '$(pwd)'" INT TERM EXIT
+
+youtube-dl -f bestaudio "$1"
+
+for F in *; do break; done
+
+case "$F" in
+        *.webm)
+                ffmpeg -i "$F" -vn -sn -c copy "${F%.webm}.opus"
+                rm "$F"
+                ;;
+        *.m4a)
+                ;;
+        *)
+                echo "$F: unsupported media type" 1>&2
+                exit 1
+esac
+
+for F in *; do break; done
+
+mv "$F" "$OUTDIR"
