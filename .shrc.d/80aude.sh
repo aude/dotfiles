@@ -49,7 +49,7 @@ if [[ -n $BASH_VERSION ]]; then
 	export HISTFILESIZE=1000000
 	export HISTSIZE=1000000
 	export HISTCONTROL=ignoreboth
-	export HISTIGNORE='ls:bg:fg:history:clear:reset:..:...:la:l:ll:lh:b:da'
+	export HISTIGNORE='ls:bg:fg:history:clear:reset:..:...:cd -:la:l:ll:lh:b:da'
 	shopt -s cmdhist
 	if [[ $PROMPT_COMMAND != *'history -a'* ]]; then
 		PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a'
