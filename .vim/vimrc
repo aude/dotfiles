@@ -4,8 +4,8 @@ if isdirectory(expand('~/.vim/bundle/vim-pathogen'))
 endif
 
 set nocompatible
-syntax on
 filetype plugin indent on
+syntax on
 
 "set number
 "set relativenumber
@@ -57,16 +57,9 @@ map <C-K> <C-W><C-K>
 map <C-L> <C-W><C-L>
 map <C-H> <C-W><C-H>
 
-" force markdown ~https://github.com/tpope/vim-markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" force go
-autocmd BufNewFile,BufReadPost *.go set filetype=go
-" force ArnoldC
+" filetype
 autocmd BufNewFile,BufReadPost *.arnoldc set filetype=arnoldc
-" Django syntax highlighting
 autocmd BufNewFile,BufReadPost */dev/py/*/templates/*.html set filetype=htmldjango
-" force nginx.conf
-autocmd BufNewFile,BufReadPost */etc/nginx/* set filetype=nginx.conf
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
