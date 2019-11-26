@@ -55,6 +55,7 @@
 !bin/agit
 !bin/ff
 !bin/ffp
+!bin/ytadl
 !.mozilla
 !.mozilla/firefox
 !.mozilla/firefox/profiles.ini
