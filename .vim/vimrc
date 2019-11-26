@@ -76,6 +76,7 @@ augroup END
 " commentary.vim
 autocmd BufNewFile,BufReadPost *.phtml setlocal commentstring=<?php\ /*%s*/\ ?>
 autocmd FileType cs setlocal commentstring=//\ %s
+autocmd FileType sed setlocal commentstring=#\ %s
 
 " easytags.vim
 let g:easytags_file = '~/.vim/tags'
