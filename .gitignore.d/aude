@@ -117,3 +117,5 @@
 !.task
 !.local/share/task
 !.local/share/task/.keepdir
+!.config/alacritty
+!.config/alacritty/**
