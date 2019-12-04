@@ -24,7 +24,7 @@ alias lr='l -l -t --reverse --human-readable'
 alias grep='grep --color'
 alias less='less -r'
 alias git='git -c color.ui=auto'
-alias rg='rg --no-heading --no-line-number --hidden --search-zip --follow'
+alias rg='rg --no-heading --no-line-number --hidden --search-zip --follow --max-columns=512'
 unalias ag 2>/dev/null
 alias ag='ag --color'
 alias tree='tree -C -a'
