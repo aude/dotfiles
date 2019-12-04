@@ -113,3 +113,21 @@ function AutoBlackFmt()
 endfunction
 command Black call BlackFmt()
 autocmd BufWritePre *.py call AutoBlackFmt()
+
+" gofmt
+function GoFmt()
+	let view = winsaveview()
+	%!gofmt
+	call winrestview(view)
+endfunction
+function AutoGoFmt()
+	if exists("$GOFMT_DISABLE")
+		return
+	endif
+	if !executable('gofmt')
+		return
+	endif
+	call GoFmt()
+endfunction
+command GoFmt call GoFmt()
+autocmd BufWritePre *.go call AutoGoFmt()
