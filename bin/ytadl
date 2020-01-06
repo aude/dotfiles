@@ -23,6 +23,8 @@ case "$F" in
                 ;;
         *.m4a)
                 ;;
+        *.mp3)
+                ;;
         *)
                 echo "$F: unsupported media type" 1>&2
                 exit 1
