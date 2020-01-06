@@ -19,9 +19,8 @@ set showcmd
 set wildmenu
 set ruler
 
-" spaces > tabs
-set expandtab
-set shiftwidth=4
+" tabs > spaces
+set tabstop=8
 
 set splitbelow
 set splitright
