@@ -130,3 +130,22 @@ function AutoGoFmt()
 endfunction
 command GoFmt call GoFmt()
 autocmd BufWritePre *.go call AutoGoFmt()
+
+" clang-format
+function ClangFormat()
+	let view = winsaveview()
+	%!clang-format
+	call winrestview(view)
+endfunction
+function AutoClangFormat()
+	if exists("$CLANG_FORMAT_DISABLE")
+		return
+	endif
+	if !executable('clang-format')
+		return
+	endif
+	call ClangFormat()
+endfunction
+command ClangFormat call ClangFormat()
+autocmd BufWritePre *.c call AutoClangFormat()
+autocmd BufWritePre *.h call AutoClangFormat()
