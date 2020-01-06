@@ -12,8 +12,8 @@ fi
 # type dots to `cd ../../../...`
 what='..'; to='cd ..'
 while [[ ${#what} -lt 16 ]]; do
-    alias "$what"="$to"
-    what+='.'; to+='/..'
+	alias "$what"="$to"
+	what+='.'; to+='/..'
 done; unset what to
 alias ls='ls --color'
 alias la='ls --all'
@@ -65,9 +65,11 @@ fi
 cl() {
 	cd ${*+"$@"} && l
 }
+
 dev() {
 	cd ~/dev/"$1"
 }
+
 # python venv activation
 activate() {
 	local dir base venv
@@ -96,126 +98,129 @@ activate() {
 		return 1
 	fi
 }
+
 # (( code search ))
 s() {
-    # check for actual binaries, aliases and stuff won't work without
-    if /usr/bin/which rg >/dev/null 2>&1; then
-        rg --smart-case "$@"
-    elif /usr/bin/which ag >/dev/null 2>&1; then
-        ag "$@"
-    elif /usr/bin/which ack >/dev/null 2>&1; then
-        ack --smart-case "$@"
-    elif /usr/bin/which grep >/dev/null 2>&1; then
-        # smart case
-        grep -R "$(echo "$1" | grep -q '[[:upper:]]' || echo '-i')" "$@"
-    else
-        echo "how is this even...? no grep?!" 1>&2
-        return 1
-    fi
+	# check for actual binaries, aliases and stuff won't work without
+	if /usr/bin/which rg >/dev/null 2>&1; then
+		rg --smart-case "$@"
+	elif /usr/bin/which ag >/dev/null 2>&1; then
+		ag "$@"
+	elif /usr/bin/which ack >/dev/null 2>&1; then
+		ack --smart-case "$@"
+	elif /usr/bin/which grep >/dev/null 2>&1; then
+		# smart case
+		grep -R "$(echo "$1" | grep -q '[[:upper:]]' || echo '-i')" "$@"
+	else
+		echo "how is this even...? no grep?!" 1>&2
+		return 1
+	fi
 }
 # (( code search ))
 
 # (( file search ))
 # bind ctrl-f to fuzzy-find a file and append it to the command line
 function print_files() {
-    # prefer `rg`
-    if /usr/bin/which rg >/dev/null 2>&1; then
-        rg --files --no-ignore --glob '!.git'
-    # fall back to `find`
-    else
-        # skip .git directories
-        find . -name .git -prune -o -type f -print
-    fi
+	# prefer `rg`
+	if /usr/bin/which rg >/dev/null 2>&1; then
+		rg --files --no-ignore --glob '!.git'
+	# fall back to `find`
+	else
+		# skip .git directories
+		find . -name .git -prune -o -type f -print
+	fi
 }
 function choose() {
-    # check for actual binaries, aliases and stuff won't work without
-    if /usr/bin/which fzy >/dev/null 2>&1; then
-        fzy | exists | is_not_empty
-    elif /usr/bin/which fzf >/dev/null 2>&1; then
-        fzf --cycle
-    else
-        echo 'install "fzy" or "fzf" to use this functionality' >&2
-        return 1
-    fi
+	# check for actual binaries, aliases and stuff won't work without
+	if /usr/bin/which fzy >/dev/null 2>&1; then
+		fzy | exists | is_not_empty
+	elif /usr/bin/which fzf >/dev/null 2>&1; then
+		fzf --cycle
+	else
+		echo 'install "fzy" or "fzf" to use this functionality' >&2
+		return 1
+	fi
 }
+
 # command to select a file
 function select_file() {
-    print_files 2>/dev/null | choose
+	print_files 2>/dev/null | choose
 }
 # helper functions
 function exists() {
-    while read -r file; do
-        if [ -e "$file" ]; then
-            printf '%s\n' "$file"
-        fi
-    done
+	while read -r path; do
+		if [ -e "$path" ]; then
+			printf '%s\n' "$path"
+		fi
+	done
 }
+
 function is_not_empty() {
-    empty='true'
-    while read -r line; do
-        printf '%s\n' "$line"
-        empty='false'
-    done
-    if "$empty"; then
-        return 1
-    fi
+	empty='true'
+	while read -r line; do
+		printf '%s\n' "$line"
+		empty='false'
+	done
+	if "$empty"; then
+		return 1
+	fi
 }
 
 # if BASH
 if [[ -n $BASH_VERSION ]]; then
 
-    # ~https://gist.github.com/aaronj1335/7090969
-    function append-fuzzyfind-path-to-command-line() {
-        local selected_path
-        # Find the path; abort if the user doesn't select anything.
-        selected_path=$(select_file) || return
-        # Quote the path.
-        selected_path=$(printf '%q' "$selected_path")
-        # Append the selection to the current command buffer.
-        READLINE_LINE="$READLINE_LINE$selected_path "
-        READLINE_POINT=${#READLINE_LINE}
-    }
+	# ~https://gist.github.com/aaronj1335/7090969
+	function append-fuzzyfind-path-to-command-line() {
+		local selected_path
+		# Find the path; abort if the user doesn't select anything.
+		selected_path=$(select_file) || return
+		# Quote the path.
+		selected_path=$(printf '%q' "$selected_path")
+		# Append the selection to the current command buffer.
+		READLINE_LINE="$READLINE_LINE$selected_path "
+		READLINE_POINT=${#READLINE_LINE}
+	}
 
-    # bind the key to the widget
-    bind -x '"\C-f":"append-fuzzyfind-path-to-command-line"'
+	# bind the key to the widget
+	bind -x '"\C-f":"append-fuzzyfind-path-to-command-line"'
 
 # else if ZSH
 elif [[ -n $ZSH_VERSION ]]; then
 
-    function append-fuzzyfind-path-to-command-line() {
-        local selected_path
-        # Print a newline or we'll clobber the old prompt.
-        echo
-        # Find the path; abort if the user doesn't select anything.
-        selected_path=$(select_file) || return
-        # Quote the path.
-        selected_path=$(printf '%q' "$selected_path")
-        # Append the selection to the current command buffer.
-        LBUFFER="$LBUFFER$selected_path"
-        # Redraw the prompt since fuzzyfind has drawn several new lines of text.
-        zle reset-prompt
-        # run the command
-        #zle accept-line
-    }
+	function append-fuzzyfind-path-to-command-line() {
+		local selected_path
+		# Print a newline or we'll clobber the old prompt.
+		echo
+		# Find the path; abort if the user doesn't select anything.
+		selected_path=$(select_file) || return
+		# Quote the path.
+		selected_path=$(printf '%q' "$selected_path")
+		# Append the selection to the current command buffer.
+		LBUFFER="$LBUFFER$selected_path"
+		# Redraw the prompt since fuzzyfind has drawn several new lines of text.
+		zle reset-prompt
+		# run the command
+		#zle accept-line
+	}
 
-    # Create the zle widget
-    zle -N append-fuzzyfind-path-to-command-line
-    # Bind the key to the newly created widget
-    bindkey "^F" "append-fuzzyfind-path-to-command-line"
+	# Create the zle widget
+	zle -N append-fuzzyfind-path-to-command-line
+	# Bind the key to the newly created widget
+	bindkey "^F" "append-fuzzyfind-path-to-command-line"
 
 fi
 # (( file search ))
 
 # (( gpg-agent ))
 if [[ -d ~/.gnupg ]]; then
-    # set GnuPG TTY. `man 1 gpg-agent`
-    GPG_TTY=$(tty)
-    export GPG_TTY
+	# set GnuPG TTY. `man 1 gpg-agent`
+	GPG_TTY=$(tty)
+	export GPG_TTY
 
-    # refresh gpg-agent tty in case user switches into an X session
-    if command -v gpg-connect-agent >/dev/null 2>&1; then
-        gpg-connect-agent updatestartuptty /bye >/dev/null
-    fi
+	# refresh gpg-agent tty in case user switches into an X session
+	if command -v gpg-connect-agent >/dev/null 2>&1; then
+		gpg-connect-agent updatestartuptty /bye >/dev/null
+	fi
 fi
 # (( gpg-agent ))
 
