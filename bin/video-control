@@ -11,6 +11,7 @@ case "$2" in
 			arguments+=(--output "$output" --off)
 		done
 
+		set -x
 		exec xrandr "${arguments[@]}"
 		;;
 	*)
