@@ -6,6 +6,7 @@ export GOPATH="$HOME/dev/go"
 export ANDROID_HOME="$HOME/src/android-sdk-linux"
 export FLUTTER_HOME="$HOME/src/flutter"
 export N_PREFIX="$HOME/src/n"
+export JUPYTER_CONFIG_DIR="${XDG_DATA_HOME-$HOME/.local/share}/jupyter"
 export MPV_SOCKET="$XDG_RUNTIME_DIR/mpv-socket"
 
 # sort case sensitively
