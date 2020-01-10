@@ -1,6 +1,7 @@
 # -- env --
 export EDITOR='vim'
 export VISUAL="$EDITOR"
+export PAGER='less'
 export PASSWORD_STORE_DIR="$HOME/key/password-store"
 export GOPATH="$HOME/dev/go"
 export ANDROID_HOME="$HOME/src/android-sdk-linux"
