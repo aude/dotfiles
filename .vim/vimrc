@@ -49,8 +49,6 @@ silent! colorscheme solarized
 
 " map
 let mapleader=","
-map j gj
-map k gk
 map <C-J> <C-W><C-J>
 map <C-K> <C-W><C-K>
 map <C-L> <C-W><C-L>
