@@ -243,6 +243,10 @@ fi
 # automatically activate python venv if present
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''command -v deactivate >/dev/null 2>&1 && deactivate; activate >/dev/null 2>&1 || true'
 
+# enable Bash "inverse Ctrl+R"
+# https://stackoverflow.com/a/791800
+stty -ixon
+
 # do not show the "Done" message, so run all in subshell
 #(
 #	(
