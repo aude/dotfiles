@@ -23,7 +23,7 @@
 !src/.keepdir
 !bin
 !bin/.keepdir
-!bin/md
+!bin/mkd
 !bin/selecta
 !bin/i3-launch
 !bin/xcwd
