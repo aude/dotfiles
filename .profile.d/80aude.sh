@@ -3,7 +3,7 @@ export EDITOR='vim'
 export VISUAL="$EDITOR"
 export PAGER='less'
 export PASSWORD_STORE_DIR="$HOME/key/password-store"
-export GOPATH="$HOME/dev/go"
+export GOPATH="${XDG_CACHE_HOME-$HOME/.cache}/go"
 export ANDROID_HOME="$HOME/src/android-sdk-linux"
 export FLUTTER_HOME="$HOME/src/flutter"
 export N_PREFIX="$HOME/src/n"
@@ -78,7 +78,6 @@ path_add() {
 path_add 'before' "$HOME/.local/bin"
 path_add 'before' "$HOME/bin"
 
-path_add 'after' "$GOPATH/bin"
 path_add 'after' "$HOME/.dotnet/tools"
 path_add 'after' "$ANDROID_HOME"/{tools{,/bin},platform-tools,emulator}
 path_add 'after' "$FLUTTER_HOME/bin"
