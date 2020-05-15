@@ -9,6 +9,8 @@
 !.config/mr/available.d/aude
 !.config/mr/config.d
 !.config/mr/config.d/aude
+!.config/git
+!.config/git/**
 !.mrconfig
 !.inputrc
 !.dircolors
