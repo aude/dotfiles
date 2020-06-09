@@ -11,6 +11,7 @@
 	ff = only
 
 [alias]
+	ff = merge --ff-only @{upstream}
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 	delete-remote-branch = push origin --delete
 
