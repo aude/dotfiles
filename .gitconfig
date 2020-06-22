@@ -17,6 +17,7 @@
 	s = switch
 	l = log
 	c = commit
+	ca = commit --amend
 	delete-remote-branch = push origin --delete
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 
