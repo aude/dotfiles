@@ -14,6 +14,7 @@
 	ff = merge --ff-only @{upstream}
 	wc = whatchanged
 	co = checkout
+	s = switch
 	delete-remote-branch = push origin --delete
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 
