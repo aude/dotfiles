@@ -16,6 +16,7 @@
 	co = checkout
 	s = switch
 	l = log
+	b = branch
 	c = commit
 	ca = commit --amend
 	delete-remote-branch = push origin --delete
