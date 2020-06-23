@@ -21,6 +21,7 @@
 	ca = commit --amend
 	d = diff
 	ds = diff --staged
+	sta = status
 	delete-remote-branch = push origin --delete
 	subdir-pages-push = "!f() { git subtree push --prefix $1 origin gh-pages; }; f"
 
