@@ -147,3 +147,21 @@ endfunction
 command ClangFormat call ClangFormat()
 autocmd BufWritePre *.c call AutoClangFormat()
 autocmd BufWritePre *.h call AutoClangFormat()
+
+" terraform fmt
+function TerraformFmt()
+	let view = winsaveview()
+	%!terraform fmt -
+	call winrestview(view)
+endfunction
+function AutoTerraformFmt()
+	if exists("$TERRAFORM_FMT_DISABLE")
+		return
+	endif
+	if !executable('terraform')
+		return
+	endif
+	call TerraformFmt()
+endfunction
+command TerraformFmt call TerraformFmt()
+autocmd BufWritePre *.tf call AutoTerraformFmt()
