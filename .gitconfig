@@ -10,6 +10,9 @@
 [pull]
 	ff = only
 
+[fetch]
+	prune = true
+
 [alias]
 	ff = merge --ff-only @{upstream}
 	wc = whatchanged
