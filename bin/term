@@ -2,4 +2,4 @@
 
 cd "$(xcwd)"
 
-exec st "$@"
+exec alacritty "$@"
