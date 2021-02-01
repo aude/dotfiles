@@ -33,8 +33,8 @@ git_update = git_update_shallow "$@"
 [src/archbootstrap]
 checkout = git_checkout_shallow "$@" 'https://github.com/aude/archbootstrap.git' "$(basename "$MR_REPO")"
 git_update = git_update_shallow "$@"
-[src/bash-alias-completion]
-checkout = git_checkout_shallow "$@" 'https://github.com/aude/bash-alias-completion.git' "$(basename "$MR_REPO")"
+[src/alias-completion]
+checkout = git_checkout_shallow "$@" 'https://github.com/aude/alias-completion.git' "$(basename "$MR_REPO")"
 git_update = git_update_shallow "$@"
 
 [.vim/bundle/vim-pathogen]

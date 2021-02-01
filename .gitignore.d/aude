@@ -43,7 +43,7 @@
 !bin/xedit
 !bin/n
 !bin/archbootstrap
-!bin/bash-alias-completion
+!bin/alias-completion-bash
 !bin/tmp
 !bin/upper
 !bin/lower
