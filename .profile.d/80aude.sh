@@ -55,7 +55,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export POWERSHELL_TELEMETRY_OPTOUT=1
 
 path_has() {
-    if [[ $PATH == *$1* ]]; then
+    if [[ :$PATH: == *:$1:* ]]; then
         return 0
     fi
     return 1
